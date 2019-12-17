@@ -1,0 +1,23 @@
+{
+  "name": "ticky",
+  "version": "1.0.0",
+  "description": "Ticky Ticket App",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panchepanevski/ticky.git"
+  },
+  "keywords": [
+    "ticket",
+    "app"
+  ],
+  "author": "Panche Panevski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/panchepanevski/ticky/issues"
+  },
+  "homepage": "https://github.com/panchepanevski/ticky#readme"
+}
