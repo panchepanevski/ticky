@@ -1,0 +1,29 @@
+{
+  "name": "ticky",
+  "version": "1.0.0",
+  "description": "Ticky Ticket App",
+  "main": "index.js",
+  "scripts": {
+    "build-client": "cd client && npm run build",
+    "build-storybook": "cd client && npm run build-storybook",
+    "build": "npm run build-storybook && npm run build-client",
+    "client": "cd client && npm start",
+    "storybook": "cd client && npm run storybook",
+    "test": "cd client && npm test",
+    "postinstall": "cd client && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panchepanevski/ticky.git"
+  },
+  "keywords": [
+    "ticket",
+    "app"
+  ],
+  "author": "Panche Panevski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/panchepanevski/ticky/issues"
+  },
+  "homepage": "https://github.com/panchepanevski/ticky#readme"
+}
