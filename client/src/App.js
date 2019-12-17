@@ -1,10 +1,15 @@
 import React from 'react';
+import GlobalStyles from './GlobalStyles';
+import { ThemeProvider } from 'emotion-theming';
+import darkTheme from './themes/darkTheme';
+import styled from '@emotion/styled';
 
 function App() {
   return (
-    <div className="App">
+    <ThemeProvider theme={darkTheme}>
+      <GlobalStyles />
       <h1>Ticky</h1>
-    </div>
+    </ThemeProvider>
   );
 }
 
