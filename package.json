@@ -2,9 +2,8 @@
   "name": "ticky",
   "version": "1.0.0",
   "description": "Ticky Ticket App",
-  "main": ".eslintrc.js",
+  "main": "index.js",
   "scripts": {
-    "start": "now.js",
     "build-client": "cd client && npm run build",
     "build-storybook": "cd client && npm run build-storybook",
     "build": "npm run build-storybook && npm run build-client",
@@ -29,3 +28,4 @@
   },
   "homepage": "https://github.com/panchepanevski/ticky#readme"
 }
+
