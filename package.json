@@ -4,6 +4,7 @@
   "description": "Ticky Ticket App",
   "main": ".eslintrc.js",
   "scripts": {
+    "start": "now.js",
     "build-client": "cd client && npm run build",
     "build-storybook": "cd client && npm run build-storybook",
     "build": "npm run build-storybook && npm run build-client",
