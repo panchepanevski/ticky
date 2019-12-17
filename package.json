@@ -4,12 +4,10 @@
   "description": "Ticky Ticket App",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
     "build-client": "cd client && npm run build",
     "build-storybook": "cd client && npm run build-storybook",
     "build": "npm run build-storybook && npm run build-client",
     "client": "cd client && npm start",
-    "server": "node server.js",
     "storybook": "cd client && npm run storybook",
     "test": "cd client && npm test",
     "postinstall": "cd client && npm install"
