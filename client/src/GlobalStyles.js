@@ -13,6 +13,7 @@ function GlobalStyles() {
         body {
           font-size: 16px;
           margin: 0;
+          padding: 0;
           color: ${theme.colors.primary};
           background-color: ${theme.colors.background};
           font-family: 'Ubuntu', sans-serif;
