@@ -9,14 +9,13 @@ const ButtonWrapper = styled.div`
 const ButtonLink = styled(Link)`
   text-transform: uppercase;
   text-decoration: none;
-  /* border-bottom: #e8de00 0.1em solid; */
   font-size: 18px;
   font-weight: 900;
   text-shadow: 1px 1px 1px #000000;
-  color: #efefef;
+  color: ${props => props.theme.colors.primary};
   &:hover,
   &:active {
-    color: #5d38ff;
+    color: ${props => props.theme.colors.thertiary};
   }
 `;
 
