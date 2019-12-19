@@ -1,18 +1,29 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Button from './Button';
-import addOrderButtonIcon from '../assets/icons/addOrderButtonIcon.svg';
+import { Link } from 'react-router-dom';
 
 const ButtonWrapper = styled.div`
   grid-column: 4 / 5;
 `;
 
-export default function AddOrderButton() {
+const ButtonLink = styled(Link)`
+  text-transform: uppercase;
+  text-decoration: none;
+  /* border-bottom: #e8de00 0.1em solid; */
+  font-size: 18px;
+  font-weight: 900;
+  text-shadow: 1px 1px 1px #000000;
+  color: #efefef;
+  &:hover,
+  &:active {
+    color: #5d38ff;
+  }
+`;
+
+export default function AddTicketButton() {
   return (
     <ButtonWrapper>
-      <Button>
-        <img alt="addTicket" src={addOrderButtonIcon} />
-      </Button>
+      <ButtonLink>order</ButtonLink>
     </ButtonWrapper>
   );
 }

@@ -3,12 +3,15 @@ import GlobalStyles from './GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
 import darkTheme from './themes/darkTheme';
 import Header from './components/Header';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <GlobalStyles />
-      <Header />
+      <Router>
+        <Header />
+      </Router>
     </ThemeProvider>
   );
 }
