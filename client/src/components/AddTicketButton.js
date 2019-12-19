@@ -16,7 +16,6 @@ const ButtonLink = styled(Link)`
   &:hover,
   &:active {
     color: ${props => props.theme.colors.thertiary};
-    transform: 0.5s;
   }
 `;
 
