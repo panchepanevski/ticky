@@ -12,10 +12,10 @@ const ButtonLink = styled(Link)`
   font-size: 18px;
   font-weight: 900;
   text-shadow: 1px 1px 1px #000000;
-  color: #efefef;
+  color: ${props => props.theme.colors.primary};
   &:hover,
   &:active {
-    color: #5d38ff;
+    color: ${props => props.theme.colors.thertiary};
     transform: 0.5s;
   }
 `;
