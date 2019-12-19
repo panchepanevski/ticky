@@ -2,10 +2,11 @@ import React from 'react';
 import styled from '@emotion/styled';
 import AddTicketButton from './AddTicketButton';
 import AddOrderButton from './AddOrderButton';
+import Logo from './Logo';
 
 const HeaderWrapper = styled.div`
   display: grid;
-  grid-template-columns: 5% 20% 30% 20% 20% 5%;
+  grid-template-columns: 5% 20% 20% 25% 25% 5%;
   grid-template-rows: 80px;
   justify-items: center;
   align-items: center;
@@ -18,6 +19,7 @@ const HeaderWrapper = styled.div`
 export default function Header() {
   return (
     <HeaderWrapper>
+      <Logo />
       <AddOrderButton />
       <AddTicketButton />
     </HeaderWrapper>
