@@ -22,7 +22,7 @@ const ButtonLink = styled(Link)`
 export default function AddTicketButton() {
   return (
     <ButtonWrapper>
-      <ButtonLink>ticket</ButtonLink>
+      <ButtonLink to="/newticket">ticket</ButtonLink>
     </ButtonWrapper>
   );
 }

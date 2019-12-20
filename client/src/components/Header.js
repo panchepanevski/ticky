@@ -21,7 +21,7 @@ export default function Header() {
     <HeaderWrapper>
       <Logo />
       <AddOrderButton />
-      <AddTicketButton />
+      <AddTicketButton></AddTicketButton>
     </HeaderWrapper>
   );
 }
