@@ -154,8 +154,9 @@ const SubmitButton = styled.button`
 `;
 
 export default function NewTicket() {
+  const now = new Date().toLocaleString();
   const [name, setName] = React.useState('');
-  const [timedate, setTimedate] = React.useState(new Date());
+  const [timedate, setTimedate] = React.useState(now);
   const [assigned, setAssigned] = React.useState('');
   const [location, setLocation] = React.useState('');
   const [status, setStatus] = React.useState('');
@@ -185,15 +186,10 @@ export default function NewTicket() {
     <Form onSubmit={handleSubmit}>
       <AddTicketText>Add Ticket</AddTicketText>
       <Label>Ticket name</Label>
-      <Name
-        type="text"
-        value={name}
-        placeholder="Example: Problem with A2"
-        onChange={event => setName(event.target.value)}
-      />
-      <Label>Time and Date</Label>
+      <Name type="text" value={name} onChange={event => setName(event.target.value)} />
+      <Label>Date and Time</Label>
       <TimeDate
-        type="datetime-local"
+        type="datetime"
         value={timedate}
         onChange={event => setTimedate(event.target.value)}
       />
@@ -201,7 +197,6 @@ export default function NewTicket() {
       <AssignedBy
         type="text"
         value={assigned}
-        placeholder="Example: Panche Panevski"
         onChange={event => setAssigned(event.target.value)}
       />
       <Label>Location</Label>
