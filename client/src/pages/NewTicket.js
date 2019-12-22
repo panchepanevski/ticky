@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { InputName } from '../components/InputFields/InputName';
 import { InputLocation } from '../components/InputFields/InputLocation';
 import { InputAssignedBy } from '../components/InputFields/InputAssignedBy';
