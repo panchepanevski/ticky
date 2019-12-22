@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import AddTicketButton from './AddTicketButton';
+import BackButton from '../components/BackButton';
 import AddOrderButton from './AddOrderButton';
 import Logo from './Logo';
 
@@ -16,12 +16,12 @@ const HeaderWrapper = styled.div`
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 `;
 
-export default function Header() {
+export default function TicketHeader() {
   return (
     <HeaderWrapper>
       <Logo />
       <AddOrderButton />
-      <AddTicketButton />
+      <BackButton />
     </HeaderWrapper>
   );
 }

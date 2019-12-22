@@ -1,159 +1,34 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
+import { InputName } from '../components/InputFields/InputName';
+import { InputLocation } from '../components/InputFields/InputLocation';
+import { InputAssignedBy } from '../components/InputFields/InputAssignedBy';
+import { InputTimeDate } from '../components/InputFields/InputDateTime';
+import { InputDescription } from '../components/InputFields/InputDescription';
+import { SubmitButton } from '../components/InputFields/SubmitButton';
+import { InputLabel } from '../components/InputFields/InputLabel';
+import { TextStyledH1 } from '../components/TextStyledH1';
+import { InputForm } from '../components/InputFields/InputForm';
+import {
+  StatusWrapper,
+  ActiveLabel,
+  ActiveInput,
+  ProgressLabel,
+  ProgressInput,
+  CompletedLabel,
+  CompletedInput
+} from '../components/InputFields/StatusRadioButtons';
+import {
+  PriorityWrapper,
+  NormalLabel,
+  NormalInput,
+  MediumLabel,
+  MediumInput,
+  HighLabel,
+  HighInput
+} from '../components/InputFields/PriorityRadioButtons';
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  margin: 15px 0 0 15px;
-`;
-
-const AddTicketText = styled.h1`
-  display: inline-flex;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 900;
-  text-transform: uppercase;
-  padding-top: 20px;
-`;
-
-const Label = styled.p`
-  display: flex;
-  align-content: flex-start;
-  justify-content: flex-start;
-  justify-self: start;
-  font-size: 12px;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 1px #000000;
-`;
-
-const Name = styled.input`
-  width: 95%;
-  height: 33px;
-  padding: 10px;
-  background-color: transparent;
-  border: 1px solid ${props => props.theme.colors.primary};
-  border-radius: 5px 5px 5px 5px;
-  color: ${props => props.theme.colors.primary};
-  font-size: 16px;
-  outline: none;
-  &:hover,
-  &:active {
-    transition: 0.5s;
-    border: 1px solid ${props => props.theme.colors.thertiary};
-    transition: 0.2s;
-  }
-`;
-
-const TimeDate = styled.input`
-  width: 95%;
-  height: 33px;
-  padding: 10px;
-  background-color: transparent;
-  border: 1px solid ${props => props.theme.colors.primary};
-  border-radius: 5px 5px 5px 5px;
-  color: ${props => props.theme.colors.primary};
-  font-size: 16px;
-  outline: none;
-  &:hover,
-  &:active {
-    transition: 0.5s;
-    border: 1px solid ${props => props.theme.colors.thertiary};
-    transition: 0.2s;
-  }
-`;
-
-const AssignedBy = styled.input`
-  width: 95%;
-  height: 33px;
-  padding: 10px;
-  background-color: transparent;
-  border: 1px solid ${props => props.theme.colors.primary};
-  border-radius: 5px 5px 5px 5px;
-  color: ${props => props.theme.colors.primary};
-  font-size: 16px;
-  outline: none;
-  &:hover,
-  &:active {
-    transition: 0.5s;
-    border: 1px solid ${props => props.theme.colors.thertiary};
-    transition: 0.2s;
-  }
-`;
-
-const Location = styled.select`
-  width: 95%;
-  height: 33px;
-  padding-left: 10px;
-  background-color: transparent;
-  border: 1px solid ${props => props.theme.colors.primary};
-  border-radius: 5px 5px 5px 5px;
-  color: ${props => props.theme.colors.primary};
-  font-size: 16px;
-  outline: none;
-  &:hover,
-  &:active {
-    transition: 0.5s;
-    border: 1px solid ${props => props.theme.colors.thertiary};
-    transition: 0.2s;
-  }
-`;
-
-const StatusInput = styled.fieldset`
-  border: none;
-  background-color: transparent;
-`;
-
-const PriorityInput = styled.fieldset`
-  border: none;
-  background-color: transparent;
-`;
-
-const LabelRadio = styled.label`
-  margin-right: 30px;
-  font-size: 14px;
-  text-shadow: 1px 1px 1px #000000;
-  color: ${props => props.theme.colors.primary};
-`;
-
-const Description = styled.textarea`
-  width: 95%;
-  padding-left: 10px;
-  background-color: transparent;
-  border: 1px solid ${props => props.theme.colors.primary};
-  border-radius: 5px 5px 5px 5px;
-  color: ${props => props.theme.colors.primary};
-  font-size: 16px;
-  outline: none;
-  &:hover,
-  &:active {
-    transition: 0.5s;
-    border: 1px solid ${props => props.theme.colors.thertiary};
-    transition: 0.2s;
-  }
-`;
-
-const SubmitButton = styled.button`
-  align-self: center;
-  width: 35%;
-  height: 33px;
-  margin: 30px 0 30px 0;
-  background-color: transparent;
-  border: 1px solid ${props => props.theme.colors.primary};
-  border-radius: 5px 5px 5px 5px;
-  color: ${props => props.theme.colors.primary};
-  font-size: 16px;
-  text-transform: uppercase;
-  outline: none;
-
-  &:hover,
-  &:active {
-    transition: 0.5s;
-    border: 1px solid ${props => props.theme.colors.thertiary};
-    transition: 0.2s;
-  }
-`;
-
-export default function NewTicket() {
+export default function NewTicket(props) {
   const now = new Date().toLocaleString();
   const [name, setName] = React.useState('');
   const [timedate, setTimedate] = React.useState(now);
@@ -183,69 +58,81 @@ export default function NewTicket() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <AddTicketText>Add Ticket</AddTicketText>
-      <Label>Ticket name</Label>
-      <Name type="text" value={name} onChange={event => setName(event.target.value)} />
-      <Label>Date and Time</Label>
-      <TimeDate
+    <InputForm onSubmit={handleSubmit}>
+      <TextStyledH1>Add Ticket</TextStyledH1>
+      <InputLabel>Ticket name</InputLabel>
+      <InputName
+        type="text"
+        value={name}
+        onChange={event => setName(event.target.value)}
+        required
+      />
+      <InputLabel>Date and Time</InputLabel>
+      <InputTimeDate
         type="datetime"
         value={timedate}
         onChange={event => setTimedate(event.target.value)}
+        required
       />
-      <Label>Assigned by</Label>
-      <AssignedBy
+      <InputLabel>Assigned by</InputLabel>
+      <InputAssignedBy
         type="text"
         value={assigned}
         onChange={event => setAssigned(event.target.value)}
+        required
       />
-      <Label>Location</Label>
-      <Location value={location} onChange={event => setLocation(event.target.value)}>
+      <InputLabel>Location</InputLabel>
+      <InputLocation value={location} onChange={event => setLocation(event.target.value)} required>
         <option value="select">Select Location</option>
         <option value="east">East Building</option>
         <option value="west">West Building</option>
         <option value="south">South Building</option>
         <option value="north">North Building</option>
-      </Location>
-      <Label>Status</Label>
-      <StatusInput onChange={event => setStatus(event.target.value)}>
-        <LabelRadio>
-          <input type="radio" name="status" value="active" />
+      </InputLocation>
+      <InputLabel>Status</InputLabel>
+      <StatusWrapper onChange={event => setStatus(event.target.value)}>
+        <ActiveLabel>
+          <ActiveInput type="radio" name="status" value="active" checked required />
           Active
-        </LabelRadio>
-        <LabelRadio>
-          <input type="radio" name="status" value="inprogress" />
+        </ActiveLabel>
+        <ProgressLabel>
+          <ProgressInput type="radio" name="status" value="inprogress" required />
           In progress
-        </LabelRadio>
-        <LabelRadio>
-          <input type="radio" name="status" value="completed" />
+        </ProgressLabel>
+        <CompletedLabel>
+          <CompletedInput type="radio" name="status" value="completed" required />
           Completed
-        </LabelRadio>
-      </StatusInput>
-      <Label>Priority</Label>
-      <PriorityInput onChange={event => setPriority(event.target.value)}>
-        <LabelRadio>
-          <input type="radio" name="priority" value="normal" />
+        </CompletedLabel>
+      </StatusWrapper>
+      <InputLabel>Priority</InputLabel>
+      <PriorityWrapper onChange={event => setPriority(event.target.value)}>
+        <NormalLabel>
+          <NormalInput type="radio" name="progress" value="normal" checked required />
           Normal
-        </LabelRadio>
-        <LabelRadio>
-          <input type="radio" name="priority" value="medium" />
+        </NormalLabel>
+        <MediumLabel>
+          <MediumInput type="radio" name="progress" value="medium" required />
           Medium
-        </LabelRadio>
-        <LabelRadio>
-          <input type="radio" name="priority" value="high" />
+        </MediumLabel>
+        <HighLabel>
+          <HighInput type="radio" name="progress" value="high" required />
           High
-        </LabelRadio>
-      </PriorityInput>
-      <Label>Description</Label>
-      <Description
+        </HighLabel>
+      </PriorityWrapper>
+      <InputLabel>Priority</InputLabel>
+      <InputLabel>Description</InputLabel>
+      <InputDescription
         type="text"
         rows="10"
-        placeholder="Add description for your ticket"
         value={details}
         onChange={event => setDetails(event.target.value)}
+        required
       />
       <SubmitButton>Add Ticket</SubmitButton>
-    </Form>
+    </InputForm>
   );
 }
+
+NewTicket.propTypes = {
+  value: PropTypes.string
+};
