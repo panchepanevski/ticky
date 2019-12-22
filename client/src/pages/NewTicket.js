@@ -28,7 +28,7 @@ import {
   HighInput
 } from '../components/InputFields/PriorityRadioButtons';
 
-export default function NewTicket(props) {
+export default function NewTicket() {
   const now = new Date().toLocaleString();
   const [name, setName] = React.useState('');
   const [timedate, setTimedate] = React.useState(now);
@@ -132,7 +132,3 @@ export default function NewTicket(props) {
     </InputForm>
   );
 }
-
-NewTicket.propTypes = {
-  value: PropTypes.string
-};
