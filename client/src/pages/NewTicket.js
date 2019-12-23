@@ -8,24 +8,27 @@ import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { InputLabel } from '../components/InputFields/InputLabel';
 import { TextStyledH1 } from '../components/TextStyledH1';
 import { InputForm } from '../components/InputFields/InputForm';
-import {
-  StatusWrapper,
-  ActiveLabel,
-  ActiveInput,
-  ProgressLabel,
-  ProgressInput,
-  CompletedLabel,
-  CompletedInput
-} from '../components/InputFields/StatusRadioButtons';
-import {
-  PriorityWrapper,
-  NormalLabel,
-  NormalInput,
-  MediumLabel,
-  MediumInput,
-  HighLabel,
-  HighInput
-} from '../components/InputFields/PriorityRadioButtons';
+import StatusRadioButtons from '../components/InputFields/StatusRadioButtons';
+import { WrapperRadioButtons } from '../components/InputFields/WrapperRadioButtons';
+import PriorityRadioButtons from '../components/InputFields/PriorityRadioButtons';
+// import {
+//   StatusWrapper,
+//   ActiveLabel,
+//   ActiveInput,
+//   ProgressLabel,
+//   ProgressInput,
+//   CompletedLabel,
+//   CompletedInput
+// } from '../components/InputFields/StatusRadioButtons';
+// import {
+//   PriorityWrapper,
+//   NormalLabel,
+//   NormalInput,
+//   MediumLabel,
+//   MediumInput,
+//   HighLabel,
+//   HighInput
+// } from '../components/InputFields/PriorityRadioButtons';
 
 export default function NewTicket() {
   const now = new Date().toLocaleString();
@@ -89,36 +92,17 @@ export default function NewTicket() {
         <option value="north">North Building</option>
       </InputLocation>
       <InputLabel>Status</InputLabel>
-      <StatusWrapper onChange={event => setStatus(event.target.value)}>
-        <ActiveLabel>
-          <ActiveInput type="radio" name="status" value="active" checked required />
-          Active
-        </ActiveLabel>
-        <ProgressLabel>
-          <ProgressInput type="radio" name="status" value="inprogress" required />
-          In progress
-        </ProgressLabel>
-        <CompletedLabel>
-          <CompletedInput type="radio" name="status" value="completed" required />
-          Completed
-        </CompletedLabel>
-      </StatusWrapper>
+      <WrapperRadioButtons onChange={event => setStatus(event.target.value)}>
+        <StatusRadioButtons name="status" value="active" field="Active" required />
+        <StatusRadioButtons name="status" value="inprogress" field="In progress" required />
+        <StatusRadioButtons name="status" value="completed" field="Completed" required />
+      </WrapperRadioButtons>
       <InputLabel>Priority</InputLabel>
-      <PriorityWrapper onChange={event => setPriority(event.target.value)}>
-        <NormalLabel>
-          <NormalInput type="radio" name="progress" value="normal" checked required />
-          Normal
-        </NormalLabel>
-        <MediumLabel>
-          <MediumInput type="radio" name="progress" value="medium" required />
-          Medium
-        </MediumLabel>
-        <HighLabel>
-          <HighInput type="radio" name="progress" value="high" required />
-          High
-        </HighLabel>
-      </PriorityWrapper>
-      <InputLabel>Priority</InputLabel>
+      <WrapperRadioButtons onChange={event => setPriority(event.target.value)}>
+        <PriorityRadioButtons name="priority" value="normal" field="Normal" required />
+        <PriorityRadioButtons name="priority" value="medium" field="Medium" required />
+        <PriorityRadioButtons name="priority" value="high" field="High" required />
+      </WrapperRadioButtons>
       <InputLabel>Description</InputLabel>
       <InputDescription
         type="text"

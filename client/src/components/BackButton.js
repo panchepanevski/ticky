@@ -7,6 +7,9 @@ const ButtonWrapper = styled.div`
 `;
 
 const ButtonLink = styled(Link)`
+  display: flex;
+  align-content: center;
+  align-items: center;
   text-transform: uppercase;
   text-decoration: none;
   font-size: 18px;
@@ -15,15 +18,22 @@ const ButtonLink = styled(Link)`
   color: ${props => props.theme.colors.primary};
   &:hover,
   &:active {
-    color: ${props => props.theme.colors.thertiary};
+    color: ${props => props.theme.colors.tertiary};
     transition: 0.4s;
   }
 `;
 
-export default function AddTicketButton() {
+const Span = styled.span`
+  font-size: 22px;
+  margin-right: 3px;
+`;
+
+export default function BackButton() {
   return (
     <ButtonWrapper>
-      <ButtonLink to="/">back</ButtonLink>
+      <ButtonLink to="/">
+        <Span>&larr;</Span>back
+      </ButtonLink>
     </ButtonWrapper>
   );
 }

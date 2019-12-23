@@ -17,8 +17,8 @@ export const SubmitButton = styled.button`
   &:hover,
   &:active {
     transition: 0.5s;
-    border: 1px solid ${props => props.theme.colors.thertiary};
+    border: 1px solid ${props => props.theme.colors.tertiary};
     transition: 0.2s;
-    color: ${props => props.theme.colors.thertiary};
+    color: ${props => props.theme.colors.tertiary};
   }
 `;

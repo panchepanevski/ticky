@@ -15,7 +15,7 @@ const ButtonLink = styled(Link)`
   color: ${props => props.theme.colors.primary};
   &:hover,
   &:active {
-    color: ${props => props.theme.colors.thertiary};
+    color: ${props => props.theme.colors.tertiary};
     transition: 0.4s;
   }
 `;
