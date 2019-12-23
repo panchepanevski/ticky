@@ -5,6 +5,7 @@ export const InputLocation = styled.select`
   height: 33px;
   padding-left: 10px;
   background-color: transparent;
+  box-shadow: 2px 2px 2px #000000;
   border: 1px solid ${props => props.theme.colors.primary};
   border-radius: 5px 5px 5px 5px;
   color: ${props => props.theme.colors.primary};
