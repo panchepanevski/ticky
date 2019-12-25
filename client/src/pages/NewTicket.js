@@ -1,16 +1,17 @@
 import React from 'react';
-import { InputName } from '../components/InputFields/InputName';
-import { InputLocation } from '../components/InputFields/InputLocation';
-import { InputAssignedBy } from '../components/InputFields/InputAssignedBy';
-import { InputTimeDate } from '../components/InputFields/InputDateTime';
+import styled from '@emotion/styled';
+import { InputLabel } from '../components/InputFields/InputLabel';
+import { InputField } from '../components/InputFields/InputField';
+import { InputSelectBox } from '../components/InputFields/InputSelectBox';
 import { InputDescription } from '../components/InputFields/InputDescription';
 import { SubmitButton } from '../components/InputFields/SubmitButton';
-import { InputLabel } from '../components/InputFields/InputLabel';
 import { TextStyledH1 } from '../components/TextStyledH1';
-import { InputForm } from '../components/InputFields/InputForm';
-import StatusRadioButtons from '../components/InputFields/StatusRadioButtons';
-import { WrapperRadioButtons } from '../components/InputFields/WrapperRadioButtons';
-import PriorityRadioButtons from '../components/InputFields/PriorityRadioButtons';
+
+const InputForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0 0 15px;
+`;
 
 export default function NewTicket() {
   const now = new Date().toLocaleString();
@@ -45,46 +46,37 @@ export default function NewTicket() {
     <InputForm onSubmit={handleSubmit}>
       <TextStyledH1>Add Ticket</TextStyledH1>
       <InputLabel>Ticket name</InputLabel>
-      <InputName
+      <InputField
         type="text"
         value={name}
         onChange={event => setName(event.target.value)}
+        autoFocus
         required
       />
       <InputLabel>Date and Time</InputLabel>
-      <InputTimeDate
+      <InputField
         type="datetime"
         value={timedate}
         onChange={event => setTimedate(event.target.value)}
         required
       />
       <InputLabel>Assigned by</InputLabel>
-      <InputAssignedBy
+      <InputField
         type="text"
         value={assigned}
         onChange={event => setAssigned(event.target.value)}
         required
       />
       <InputLabel>Location</InputLabel>
-      <InputLocation value={location} onChange={event => setLocation(event.target.value)} required>
+      <InputSelectBox value={location} onChange={event => setLocation(event.target.value)} required>
         <option value="select">Select Location</option>
         <option value="east">East Building</option>
         <option value="west">West Building</option>
         <option value="south">South Building</option>
         <option value="north">North Building</option>
-      </InputLocation>
+      </InputSelectBox>
       <InputLabel>Status</InputLabel>
-      <WrapperRadioButtons onChange={event => setStatus(event.target.value)}>
-        <StatusRadioButtons name="status" value="active" field="Active" required />
-        <StatusRadioButtons name="status" value="inprogress" field="In progress" required />
-        <StatusRadioButtons name="status" value="completed" field="Completed" required />
-      </WrapperRadioButtons>
       <InputLabel>Priority</InputLabel>
-      <WrapperRadioButtons onChange={event => setPriority(event.target.value)}>
-        <PriorityRadioButtons name="priority" value="normal" field="Normal" required />
-        <PriorityRadioButtons name="priority" value="medium" field="Medium" required />
-        <PriorityRadioButtons name="priority" value="high" field="High" required />
-      </WrapperRadioButtons>
       <InputLabel>Description</InputLabel>
       <InputDescription
         type="text"

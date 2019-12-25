@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 
-export const InputDescription = styled.textarea`
+export const InputSelectBox = styled.select`
   width: 95%;
-  padding-left: 10px;
+  height: 33px;
+  padding: 10px;
   background-color: transparent;
   box-shadow: 2px 2px 2px #000000;
   border: 1px solid ${props => props.theme.colors.primary};
@@ -12,7 +13,7 @@ export const InputDescription = styled.textarea`
   outline: none;
   &:hover,
   &:focus {
-    transition: 0.5s;
+    transition: 0.4s;
     border: 1px solid ${props => props.theme.colors.tertiary};
     transition: 0.2s;
   }
