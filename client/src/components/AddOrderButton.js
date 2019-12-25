@@ -15,14 +15,22 @@ const ButtonLink = styled(Link)`
   color: ${props => props.theme.colors.primary};
   &:hover,
   &:active {
-    color: ${props => props.theme.colors.thertiary};
+    color: ${props => props.theme.colors.tertiary};
+    transition: 0.4s;
   }
 `;
 
-export default function AddTicketButton() {
+const Span = styled.span`
+  font-size: 22px;
+  margin-right: 3px;
+`;
+
+export default function AddOrderButton() {
   return (
     <ButtonWrapper>
-      <ButtonLink>order</ButtonLink>
+      <ButtonLink>
+        <Span>&#43;</Span>order
+      </ButtonLink>
     </ButtonWrapper>
   );
 }

@@ -3,6 +3,7 @@ const lightTheme = {
     background: '#EFEFEF',
     primary: '#191828',
     secondary: '#22A8B0',
+    tertiary: '#5d38ff',
     ticket_bg: '#222031',
     status_active: '#7EFFA1',
     status_in_progres: '#E8E200',

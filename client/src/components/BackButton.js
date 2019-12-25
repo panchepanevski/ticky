@@ -7,6 +7,9 @@ const ButtonWrapper = styled.div`
 `;
 
 const ButtonLink = styled(Link)`
+  display: flex;
+  align-content: center;
+  align-items: center;
   text-transform: uppercase;
   text-decoration: none;
   font-size: 18px;
@@ -20,10 +23,17 @@ const ButtonLink = styled(Link)`
   }
 `;
 
-export default function AddTicketButton() {
+const Span = styled.span`
+  font-size: 22px;
+  margin-right: 3px;
+`;
+
+export default function BackButton() {
   return (
     <ButtonWrapper>
-      <ButtonLink to="/newticket">ticket</ButtonLink>
+      <ButtonLink to="/">
+        <Span>&larr;</Span>back
+      </ButtonLink>
     </ButtonWrapper>
   );
 }

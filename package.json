@@ -28,5 +28,8 @@
   "homepage": "https://github.com/panchepanevski/ticky#readme",
   "dependencies": {
     "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {
+    "json-server": "^0.15.1"
   }
 }
