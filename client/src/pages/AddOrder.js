@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { InputLabel } from '../components/OrderInputFields/InputLabel';
-import { InputField } from '../components/OrderInputFields/InputField';
-import { InputDescription } from '../components/OrderInputFields/InputDescription';
-import { SubmitButton } from '../components/OrderInputFields/SubmitButton';
+import { InputLabel } from '../components/InputFields/InputLabel';
+import { InputField } from '../components/InputFields/InputField';
+import { InputDescription } from '../components/InputFields/InputDescription';
+import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { TextStyledH1 } from '../components/TextStyledH1';
 
 const InputForm = styled.form`
