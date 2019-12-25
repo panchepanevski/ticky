@@ -12,7 +12,7 @@ export const InputField = styled.input`
   font-size: 16px;
   outline: none;
   &:hover,
-  &:active {
+  &:focus {
     transition: 0.4s;
     border: 1px solid ${props => props.theme.colors.tertiary};
     transition: 0.2s;
