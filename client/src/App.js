@@ -6,7 +6,8 @@ import darkTheme from './themes/darkTheme';
 import Header from './components/Header';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NewTicket from './pages/NewTicket';
-import TicketHeader from './components/TicketHeader';
+import AddOrder from './pages/AddOrder';
+import PageHeader from './components/PageHeader';
 
 const Main = styled.main`
   overflow: auto;
@@ -23,8 +24,12 @@ function App() {
               <Header />
             </Route>
             <Route path="/newticket" component={NewTicket}>
-              <TicketHeader />
+              <PageHeader />
               <NewTicket />
+            </Route>
+            <Route path="/addorder" component={NewTicket}>
+              <PageHeader />
+              <AddOrder />
             </Route>
           </Switch>
         </Main>
