@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const InputSelectBox = styled.select`
   width: 95%;
   height: 33px;
-  padding: 10px;
+  padding: 5px;
   background-color: transparent;
   box-shadow: 2px 2px 2px #000000;
   border: 1px solid ${props => props.theme.colors.primary};
