@@ -7,7 +7,7 @@ export const SubmitButton = styled.button`
   margin: 30px 0 30px 0;
   background-color: transparent;
   border: 1px solid ${props => props.theme.colors.primary};
-  border-radius: 5px 5px 5px 5px;
+  border-radius: 5px;
   box-shadow: 2px 2px 2px #000000;
   color: ${props => props.theme.colors.primary};
   font-size: 16px;
@@ -15,7 +15,7 @@ export const SubmitButton = styled.button`
   text-shadow: 1px 1px 1px #000000;
   outline: none;
   &:hover,
-  &:active {
+  &:focus {
     transition: 0.5s;
     border: 1px solid ${props => props.theme.colors.tertiary};
     transition: 0.2s;
