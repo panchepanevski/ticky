@@ -7,6 +7,7 @@ import Header from './components/Header';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NewTicket from './pages/NewTicket';
 import TicketHeader from './components/TicketHeader';
+
 const Main = styled.main`
   overflow: auto;
 `;
