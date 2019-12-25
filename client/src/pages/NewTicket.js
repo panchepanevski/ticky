@@ -11,24 +11,6 @@ import { InputForm } from '../components/InputFields/InputForm';
 import StatusRadioButtons from '../components/InputFields/StatusRadioButtons';
 import { WrapperRadioButtons } from '../components/InputFields/WrapperRadioButtons';
 import PriorityRadioButtons from '../components/InputFields/PriorityRadioButtons';
-// import {
-//   StatusWrapper,
-//   ActiveLabel,
-//   ActiveInput,
-//   ProgressLabel,
-//   ProgressInput,
-//   CompletedLabel,
-//   CompletedInput
-// } from '../components/InputFields/StatusRadioButtons';
-// import {
-//   PriorityWrapper,
-//   NormalLabel,
-//   NormalInput,
-//   MediumLabel,
-//   MediumInput,
-//   HighLabel,
-//   HighInput
-// } from '../components/InputFields/PriorityRadioButtons';
 
 export default function NewTicket() {
   const now = new Date().toLocaleString();

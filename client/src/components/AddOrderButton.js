@@ -25,7 +25,7 @@ const Span = styled.span`
   margin-right: 3px;
 `;
 
-export default function AddTicketButton() {
+export default function AddOrderButton() {
   return (
     <ButtonWrapper>
       <ButtonLink>
