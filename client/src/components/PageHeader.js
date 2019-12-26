@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import BackButton from '../components/BackButton';
-import AddOrderButton from './AddOrderButton';
+import BackButton from './BackButton';
 import Logo from './Logo';
 
 const HeaderWrapper = styled.div`
@@ -20,7 +19,6 @@ export default function TicketHeader() {
   return (
     <HeaderWrapper>
       <Logo />
-      <AddOrderButton />
       <BackButton />
     </HeaderWrapper>
   );

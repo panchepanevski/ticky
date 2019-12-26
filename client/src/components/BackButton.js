@@ -26,6 +26,10 @@ const ButtonLink = styled(Link)`
 const Span = styled.span`
   font-size: 22px;
   margin-right: 3px;
+  color: ${props => props.theme.colors.tertiary};
+  &:hover {
+    color: ${props => props.theme.colors.primary};
+  }
 `;
 
 export default function BackButton() {
