@@ -6,6 +6,18 @@ import { InputSelectBox } from '../components/InputFields/InputSelectBox';
 import { InputDescription } from '../components/InputFields/InputDescription';
 import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { TextStyledH1 } from '../components/TextStyledH1';
+import {
+  Wrapper,
+  Input,
+  ActiveLabel,
+  InProgressLabel,
+  CompletedLabel
+} from '../components/InputFields/StatusRadioButtons';
+import {
+  NormalLabel,
+  MediumLabel,
+  HighLabel
+} from '../components/InputFields/PriorityRadioButtons';
 
 const InputForm = styled.form`
   display: flex;
@@ -76,7 +88,35 @@ export default function NewTicket() {
         <option value="north">North Building</option>
       </InputSelectBox>
       <InputLabel>Status</InputLabel>
+      <Wrapper onChange={event => setStatus(event.target.value)}>
+        <ActiveLabel>
+          <Input type="radio" name="status" value="active" />
+          Active
+        </ActiveLabel>
+        <InProgressLabel>
+          <Input type="radio" name="status" value="inprogress" />
+          In Progress
+        </InProgressLabel>
+        <CompletedLabel>
+          <Input type="radio" name="status" value="completed" />
+          Completed
+        </CompletedLabel>
+      </Wrapper>
       <InputLabel>Priority</InputLabel>
+      <Wrapper onChange={event => setPriority(event.target.value)}>
+        <NormalLabel>
+          <Input type="radio" name="priority" value="normal" />
+          Normal
+        </NormalLabel>
+        <MediumLabel>
+          <Input type="radio" name="priority" value="medium" />
+          Medium
+        </MediumLabel>
+        <HighLabel>
+          <Input type="radio" name="priority" value="high" />
+          High
+        </HighLabel>
+      </Wrapper>
       <InputLabel>Description</InputLabel>
       <InputDescription
         type="text"
