@@ -6,23 +6,19 @@ import { InputSelectBox } from '../components/InputFields/InputSelectBox';
 import { InputDescription } from '../components/InputFields/InputDescription';
 import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { TextStyledH1 } from '../components/TextStyledH1';
-import {
-  Wrapper,
-  Input,
-  ActiveLabel,
-  InProgressLabel,
-  CompletedLabel
-} from '../components/InputFields/StatusRadioButtons';
-import {
-  NormalLabel,
-  MediumLabel,
-  HighLabel
-} from '../components/InputFields/PriorityRadioButtons';
+import PriorityRadioButtons from '../components/InputFields/PriorityRadioButtons';
+import StatusRadioButtons from '../components/InputFields/StatusRadioButtons';
 
 const InputForm = styled.form`
   display: flex;
   flex-direction: column;
   margin: 15px 0 0 15px;
+`;
+
+const WrapperRadioButtons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 98%;
 `;
 
 export default function NewTicket() {
@@ -88,35 +84,29 @@ export default function NewTicket() {
         <option value="north">North Building</option>
       </InputSelectBox>
       <InputLabel>Status</InputLabel>
-      <Wrapper onChange={event => setStatus(event.target.value)}>
-        <ActiveLabel>
-          <Input type="radio" name="status" value="active" />
+      <WrapperRadioButtons onChange={event => setStatus(event.target.value)}>
+        <StatusRadioButtons name="status" value="active" field="Active" required>
           Active
-        </ActiveLabel>
-        <InProgressLabel>
-          <Input type="radio" name="status" value="inprogress" />
+        </StatusRadioButtons>
+        <StatusRadioButtons name="status" value="inprogress" field="In Progress" required>
           In Progress
-        </InProgressLabel>
-        <CompletedLabel>
-          <Input type="radio" name="status" value="completed" />
+        </StatusRadioButtons>
+        <StatusRadioButtons name="status" value="completed" field="Completed" required>
           Completed
-        </CompletedLabel>
-      </Wrapper>
+        </StatusRadioButtons>
+      </WrapperRadioButtons>
       <InputLabel>Priority</InputLabel>
-      <Wrapper onChange={event => setPriority(event.target.value)}>
-        <NormalLabel>
-          <Input type="radio" name="priority" value="normal" />
+      <WrapperRadioButtons onChange={event => setPriority(event.target.value)}>
+        <PriorityRadioButtons name="priority" value="normal" field="Normal" required>
           Normal
-        </NormalLabel>
-        <MediumLabel>
-          <Input type="radio" name="priority" value="medium" />
+        </PriorityRadioButtons>
+        <PriorityRadioButtons name="priority" value="medium" field="Medium" required>
           Medium
-        </MediumLabel>
-        <HighLabel>
-          <Input type="radio" name="priority" value="high" />
+        </PriorityRadioButtons>
+        <PriorityRadioButtons name="priority" value="high" field="High" required>
           High
-        </HighLabel>
-      </Wrapper>
+        </PriorityRadioButtons>
+      </WrapperRadioButtons>
       <InputLabel>Description</InputLabel>
       <InputDescription
         type="text"
