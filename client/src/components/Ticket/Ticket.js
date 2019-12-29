@@ -2,16 +2,20 @@ import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Name } from './Title';
+import Status from './Status';
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
   grid-template-rows: auto auto auto auto auto;
   justify-self: center;
-  width: 97%;
-  max-width: 380px;
+  width: 98%;
   height: auto;
   background-color: ${props => props.theme.colors.elements_bg};
+  margin-top: 30px;
+  padding-left: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.15);
 `;
 
 const TitleWrapper = styled.div`
@@ -62,27 +66,22 @@ const TimeDateWrapper = styled.div`
   margin: 5px 0;
 `;
 
-export default function Ticket({
-  name,
-  status,
-  priority,
-  description,
-  assigned,
-  location,
-  datetime
-}) {
+export default function Ticket({ name, status, priority, details, assigned, location, timedate }) {
   return (
     <Container>
       <TitleWrapper>
         <Name>{name}</Name>
       </TitleWrapper>
-      <StatusWrapper>Status:{status}</StatusWrapper>
+      <StatusWrapper>
+        Status:
+        <Status />
+      </StatusWrapper>
       <PriorityWrapper>Priority:{priority}</PriorityWrapper>
-      <ProgressWrapper>sasas</ProgressWrapper>
-      <DescriptionWrapper>{description}</DescriptionWrapper>
+      <ProgressWrapper>SLIDER</ProgressWrapper>
+      <DescriptionWrapper>{details}</DescriptionWrapper>
       <AssignedWrapper>{assigned}</AssignedWrapper>
       <LocationWrapper>{location}</LocationWrapper>
-      <TimeDateWrapper>{datetime}</TimeDateWrapper>
+      <TimeDateWrapper>{timedate}</TimeDateWrapper>
     </Container>
   );
 }
