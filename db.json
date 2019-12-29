@@ -1,4 +1,35 @@
 {
-  "tickets": [],
+  "tickets": [
+    {
+      "name": "Restart Anlage Nr.5 in #Kleberei",
+      "timedate": "29/12/2019, 14:42:00",
+      "assigned": "Panche",
+      "location": "west",
+      "status": "active",
+      "priority": "medium",
+      "details": "Test",
+      "id": 1
+    },
+    {
+      "name": "What is Lorem Ipsum?",
+      "timedate": "29/12/2019, 22:54:05",
+      "assigned": "Panche Panevski",
+      "location": "south",
+      "status": "completed",
+      "priority": "high",
+      "details": "Lorem Ipsum",
+      "id": 2
+    },
+    {
+      "name": "Test",
+      "timedate": "29/12/2019, 23:22:52",
+      "assigned": "Panche",
+      "location": "west",
+      "status": "inprogress",
+      "priority": "medium",
+      "details": "Test",
+      "id": 3
+    }
+  ],
   "orders": []
 }
