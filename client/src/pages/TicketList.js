@@ -4,6 +4,8 @@ import Ticket from '../components/Ticket/Ticket';
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export default function TicketList() {
@@ -19,7 +21,7 @@ export default function TicketList() {
   }, []);
 
   return (
-    <>
+    <Container>
       {tickets.map(ticket => (
         <Ticket
           key={ticket.id}
@@ -32,6 +34,6 @@ export default function TicketList() {
           details={ticket.details}
         />
       ))}
-    </>
+    </Container>
   );
 }
