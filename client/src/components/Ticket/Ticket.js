@@ -185,8 +185,6 @@ Ticket.propTypes = {
   name: PropTypes.string,
   status: PropTypes.string,
   priority: PropTypes.string,
-  description: PropTypes.string,
   assigned: PropTypes.string,
-  location: PropTypes.string,
-  datetime: PropTypes.string
+  location: PropTypes.string
 };
