@@ -1,28 +1,27 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-export default function Status(status, idValue) {
-  const [statusValue, setStatusValue] = React.useState(status);
-  const [id, setId] = React.useState(idValue);
+const StatusBox = styled.select`
+  width: 60px;
+  height: 12px;
+  margin-left: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.15);
+  background-color: ${props => (props.value === 'active' ? '#44FE76' : 'none')};
+  background-color: ${props => (props.value === 'inprogress' ? '#E8E200' : 'none')};
+  background-color: ${props => (props.value === 'completed' ? '#727272' : 'none')};
+  color: ${props => (props.value === 'active' ? '#44FE76' : 'none')};
+  color: ${props => (props.value === 'inprogress' ? '#E8E200' : 'none')};
+  color: ${props => (props.value === 'completed' ? '#727272' : 'none')};
+`;
 
-  const StatusBox = styled.select`
-    width: 60px;
-    height: 12px;
-    margin-left: 10px;
-    border: none;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.15);
-    background-color: ${statusValue === 'active' ? '#44FE76' : 'none'};
-    background-color: ${statusValue === 'inprogress' ? '#E8E200' : 'none'};
-    background-color: ${statusValue === 'completed' ? '#727272' : 'none'};
-    color: ${statusValue === 'active' ? '#44FE76' : 'none'};
-    color: ${statusValue === 'inprogress' ? '#E8E200' : 'none'};
-    color: ${statusValue === 'completed' ? '#727272' : 'none'};
-  `;
+export default function Status({ ticketId, value }) {
+  const [statusValue, setStatusValue] = React.useState(value);
 
   async function handleStatus(value) {
-    setId(idValue);
     setStatusValue(value);
-    await fetch(`http://localhost:8080/tickets/${id}`, {
+    await fetch(`http://localhost:8080/tickets/${ticketId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -37,18 +36,12 @@ export default function Status(status, idValue) {
     <StatusBox
       value={statusValue}
       onChange={event => {
-        handleStatus(event.target.value, idValue);
+        handleStatus(event.target.value);
       }}
     >
-      <option id="" value="active">
-        Active
-      </option>
-      <option id="" value="inprogress">
-        In Progress
-      </option>
-      <option id="" value="completed">
-        Completed
-      </option>
+      <option value="active">Active</option>
+      <option value="inprogress">In Progress</option>
+      <option value="completed">Completed</option>
     </StatusBox>
   );
 }
