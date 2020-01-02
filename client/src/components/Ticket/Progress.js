@@ -37,11 +37,34 @@ const Slider = styled.input`
   }
 `;
 
-export default function Progress({ value, onChange }) {
+export default function Progress({ value, ticketId, id }) {
+  const [progress, setProgress] = React.useState(value);
+
+  async function handleProgress(value) {
+    setProgress(value);
+    await fetch(`http://localhost:8080/tickets/${ticketId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        progress: value
+      })
+    });
+  }
   return (
     <>
-      <Slider type="range" min="1" max="100" value={value} onChange={onChange} />
-      {value} %
+      <Slider
+        type="range"
+        min="0"
+        max="100"
+        value={progress}
+        ticketId={id}
+        onChange={event => {
+          handleProgress(event.target.value);
+        }}
+      />
+      {progress} %
     </>
   );
 }
