@@ -30,6 +30,7 @@ export default function NewTicket() {
   const [status, setStatus] = React.useState('');
   const [priority, setPriority] = React.useState('');
   const [details, setDetails] = React.useState('');
+  const [progress, setProgress] = React.useState('');
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -38,7 +39,16 @@ export default function NewTicket() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, timedate, assigned, location, status, priority, details })
+      body: JSON.stringify({
+        name,
+        timedate,
+        assigned,
+        location,
+        status,
+        priority,
+        details,
+        progress
+      })
     });
 
     setName('');
@@ -48,6 +58,7 @@ export default function NewTicket() {
     setStatus('');
     setPriority('');
     setDetails('');
+    setProgress('');
   }
 
   return (

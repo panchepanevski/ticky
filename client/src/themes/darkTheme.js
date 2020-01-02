@@ -5,7 +5,7 @@ const darkTheme = {
     secondary: '#22A8B0',
     tertiary: '#5d38ff',
     elements_bg: '#222031',
-    status_active: '#7EFFA1',
+    status_active: '#44FE76',
     status_active_hover: 'rgba(126,255,161,0.3)',
     status_in_progres: '#E8E200',
     status_in_progres_hover: 'rgba(232,226,0,0.3)',
