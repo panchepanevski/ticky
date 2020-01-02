@@ -16,6 +16,7 @@ export default function TicketList() {
     const newTickets = await response.json();
     setTickets(newTickets);
   }
+
   React.useEffect(() => {
     fetchTickets();
   }, []);
@@ -25,6 +26,7 @@ export default function TicketList() {
       {tickets.map(ticket => (
         <Ticket
           key={ticket.id}
+          id={ticket.id}
           name={ticket.name}
           timedate={ticket.timedate}
           assigned={ticket.assigned}
