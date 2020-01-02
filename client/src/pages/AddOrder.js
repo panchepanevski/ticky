@@ -5,11 +5,18 @@ import { InputField } from '../components/InputFields/InputField';
 import { InputDescription } from '../components/InputFields/InputDescription';
 import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { TextStyledH1 } from '../components/TextStyledH1';
+import PriorityRadioButtons from '../components/InputFields/PriorityRadioButtons';
 
 const InputForm = styled.form`
   display: flex;
   flex-direction: column;
   margin: 15px 0 0 15px;
+`;
+
+const WrapperRadioButtons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 98%;
 `;
 
 export default function AddOrder() {
@@ -88,6 +95,17 @@ export default function AddOrder() {
         required
       />
       <InputLabel>Priority</InputLabel>
+      <WrapperRadioButtons onChange={event => setPriority(event.target.value)}>
+        <PriorityRadioButtons name="priority" value="normal" field="Normal" required>
+          Normal
+        </PriorityRadioButtons>
+        <PriorityRadioButtons name="priority" value="medium" field="Medium" required>
+          Medium
+        </PriorityRadioButtons>
+        <PriorityRadioButtons name="priority" value="high" field="High" required>
+          High
+        </PriorityRadioButtons>
+      </WrapperRadioButtons>
       <InputLabel>Description</InputLabel>
       <InputDescription
         type="text"

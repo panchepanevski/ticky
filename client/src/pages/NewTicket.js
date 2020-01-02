@@ -6,11 +6,19 @@ import { InputSelectBox } from '../components/InputFields/InputSelectBox';
 import { InputDescription } from '../components/InputFields/InputDescription';
 import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { TextStyledH1 } from '../components/TextStyledH1';
+import PriorityRadioButtons from '../components/InputFields/PriorityRadioButtons';
+import StatusRadioButtons from '../components/InputFields/StatusRadioButtons';
 
 const InputForm = styled.form`
   display: flex;
   flex-direction: column;
   margin: 15px 0 0 15px;
+`;
+
+const WrapperRadioButtons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 98%;
 `;
 
 export default function NewTicket() {
@@ -87,7 +95,29 @@ export default function NewTicket() {
         <option value="north">North Building</option>
       </InputSelectBox>
       <InputLabel>Status</InputLabel>
+      <WrapperRadioButtons onChange={event => setStatus(event.target.value)}>
+        <StatusRadioButtons name="status" value="active" field="Active" required>
+          Active
+        </StatusRadioButtons>
+        <StatusRadioButtons name="status" value="inprogress" field="In Progress" required>
+          In Progress
+        </StatusRadioButtons>
+        <StatusRadioButtons name="status" value="completed" field="Completed" required>
+          Completed
+        </StatusRadioButtons>
+      </WrapperRadioButtons>
       <InputLabel>Priority</InputLabel>
+      <WrapperRadioButtons onChange={event => setPriority(event.target.value)}>
+        <PriorityRadioButtons name="priority" value="normal" field="Normal" required>
+          Normal
+        </PriorityRadioButtons>
+        <PriorityRadioButtons name="priority" value="medium" field="Medium" required>
+          Medium
+        </PriorityRadioButtons>
+        <PriorityRadioButtons name="priority" value="high" field="High" required>
+          High
+        </PriorityRadioButtons>
+      </WrapperRadioButtons>
       <InputLabel>Description</InputLabel>
       <InputDescription
         type="text"

@@ -16,15 +16,17 @@ const Label = styled.label`
   text-shadow: 1px 1px 1px #000000;
   background-color: transparent;
   border-radius: 10px;
-  border: ${props => {
-    if (props.field === 'Normal') {
-      return props.theme.colors.priority_normal;
-    } else if (props.field === 'Medium') {
-      return props.theme.colors.priority_medium;
-    } else if (props.field === 'High') {
-      return props.theme.colors.priority_high;
-    } else console.error('This is not a function!!!!');
-  }};
+  border: 1px solid
+    ${props => {
+      if (props.field === 'Normal') {
+        return props.theme.colors.priority_normal;
+      } else if (props.field === 'Medium') {
+        return props.theme.colors.priority_medium;
+      } else if (props.field === 'High') {
+        return props.theme.colors.priority_high;
+      } else console.error('This is not a function!!!!');
+    }};
+
   &:hover,
   &:active {
     background-color: ${props => {
@@ -33,16 +35,15 @@ const Label = styled.label`
       } else if (props.field === 'Medium') {
         return props.theme.colors.priority_medium_hover;
       } else if (props.field === 'High') {
-        return props.theme.colors.priority_hover;
+        return props.theme.colors.priority_high_hover;
       } else console.error('This is not a function!!!!');
     }};
-    }
   }
 `;
 
 export default function PriorityRadioButtons({ name, value, field }) {
   return (
-    <Label>
+    <Label field={field}>
       <Input type="radio" value={value} name={name} />
       {field}
     </Label>
