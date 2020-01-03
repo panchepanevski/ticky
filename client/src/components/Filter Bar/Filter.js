@@ -2,6 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import filterIcon from '../../assets/icons/filterIcon.svg';
 import { Button } from './Button';
+import calendarIcon from '../../assets/icons/calendarIcon.svg';
+import locationIcon from '../../assets/icons/locationIcon.svg';
 
 const Wrapper = styled.div`
   display: grid;
@@ -54,6 +56,11 @@ const LocationFilter = styled.div`
   border: 1px solid ${props => props.theme.colors.background};
 `;
 
+const IconWrapper = styled.img`
+  width: 20px;
+  height: 20px;
+`;
+
 export default function Filter() {
   return (
     <Wrapper>
@@ -61,9 +68,19 @@ export default function Filter() {
       <PriorityFilter>
         <Button>PRIORITY</Button>
       </PriorityFilter>
-      <StatusFilter>STATUS</StatusFilter>
-      <DateFilter>D</DateFilter>
-      <LocationFilter>L</LocationFilter>
+      <StatusFilter>
+        <Button>STATUS</Button>
+      </StatusFilter>
+      <DateFilter>
+        <Button>
+          <IconWrapper src={calendarIcon}></IconWrapper>
+        </Button>
+      </DateFilter>
+      <LocationFilter>
+        <Button>
+          <IconWrapper src={locationIcon}></IconWrapper>
+        </Button>
+      </LocationFilter>
     </Wrapper>
   );
 }
