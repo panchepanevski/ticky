@@ -89,10 +89,10 @@ export default function NewTicket() {
       <InputLabel>Location</InputLabel>
       <InputSelectBox value={location} onChange={event => setLocation(event.target.value)} required>
         <option value="select">Select Location</option>
-        <option value="east">East Building</option>
-        <option value="west">West Building</option>
-        <option value="south">South Building</option>
-        <option value="north">North Building</option>
+        <option value="east-building">East Building</option>
+        <option value="west-building">West Building</option>
+        <option value="south-building">South Building</option>
+        <option value="north-building">North Building</option>
       </InputSelectBox>
       <InputLabel>Status</InputLabel>
       <WrapperRadioButtons onChange={event => setStatus(event.target.value)}>
