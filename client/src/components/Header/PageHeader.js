@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import BackButton from './BackButton';
-import Logo from './Logo';
+import BackButton from '../Header/BackButton';
+import Logo from '../Header/Logo';
 
 const HeaderWrapper = styled.div`
   display: grid;

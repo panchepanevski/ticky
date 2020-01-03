@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Logo from './Logo';
-import AddOrderButton from './AddOrderButton';
-import AddTicketButton from './AddTicketButton';
+import Logo from '../Header/Logo';
+import AddOrderButton from '../Header/AddOrderButton';
+import AddTicketButton from '../Header/AddTicketButton';
 
 const HeaderWrapper = styled.div`
   display: grid;
