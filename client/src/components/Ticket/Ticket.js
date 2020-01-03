@@ -162,7 +162,7 @@ export default function Ticket({
       </ProgressWrapper>
 
       <DescriptionWrapper onClick={() => setDescription(!description)}>
-        Description &or;
+        Description &#x025BE;
       </DescriptionWrapper>
       <ExtraDescription description={description}>{details}</ExtraDescription>
 
