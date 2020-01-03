@@ -2,10 +2,11 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const Svg = styled.svg`
-  fill: ${props => props.theme.colors.tertiary};
+  fill: ${props => props.theme.colors.primary};
+
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
   &:hover {
-    fill: ${props => props.theme.colors.primary};
+    fill: ${props => props.theme.colors.tertiary};
   }
 `;
 
