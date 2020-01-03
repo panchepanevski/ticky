@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import filterIcon from '../../assets/icons/filterIcon.svg';
 import { Button } from './Button';
-import calendarIcon from '../../assets/icons/calendarIcon.svg';
-import locationIcon from '../../assets/icons/locationIcon.svg';
+import CalendarIcon from '../../assets/icons/CalendarIcon';
+import LocationIcon from '../../assets/icons/LocationIcon';
+import FilterIcon from '../../assets/icons/FilterIcon';
 
 const Wrapper = styled.div`
   display: grid;
@@ -13,15 +13,17 @@ const Wrapper = styled.div`
   align-items: center;
   height: 30px;
   width: 100%;
+  border-top: 1px solid ${props => props.theme.colors.background};
   background-color: ${props => props.theme.colors.elements_bg};
 `;
 
-const FilterIcon = styled.img`
+const FilterIconWrapper = styled.div`
   grid-column: 1 / 2;
-  width: 28px;
-  height: auto;
+  width: 100%;
+  height: 100%;
   justify-self: center;
   align-self: center;
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
 `;
 
 const PriorityFilter = styled.div`
@@ -29,7 +31,8 @@ const PriorityFilter = styled.div`
   justify-self: center;
   width: 100%;
   height: 100%;
-  border: 1px solid ${props => props.theme.colors.background};
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
+  /* border: 1px solid ${props => props.theme.colors.background}; */
 `;
 
 const StatusFilter = styled.div`
@@ -37,7 +40,8 @@ const StatusFilter = styled.div`
   justify-self: center;
   width: 100%;
   height: 100%;
-  border: 1px solid ${props => props.theme.colors.background};
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
+  /* border: 1px solid ${props => props.theme.colors.background}; */
 `;
 
 const DateFilter = styled.div`
@@ -45,7 +49,8 @@ const DateFilter = styled.div`
   justify-self: center;
   width: 100%;
   height: 100%;
-  border: 1px solid ${props => props.theme.colors.background};
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
+  /* border: 1px solid ${props => props.theme.colors.background}; */
 `;
 
 const LocationFilter = styled.div`
@@ -53,18 +58,19 @@ const LocationFilter = styled.div`
   justify-self: center;
   width: 100%;
   height: 100%;
-  border: 1px solid ${props => props.theme.colors.background};
-`;
-
-const IconWrapper = styled.img`
-  width: 20px;
-  height: 20px;
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
+  /* border: 1px solid ${props => props.theme.colors.background}; */
 `;
 
 export default function Filter() {
   return (
     <Wrapper>
-      <FilterIcon src={filterIcon}></FilterIcon>
+      <FilterIconWrapper>
+        <Button>
+          <FilterIcon />
+        </Button>
+      </FilterIconWrapper>
+
       <PriorityFilter>
         <Button>PRIORITY</Button>
       </PriorityFilter>
@@ -73,12 +79,12 @@ export default function Filter() {
       </StatusFilter>
       <DateFilter>
         <Button>
-          <IconWrapper src={calendarIcon}></IconWrapper>
+          <CalendarIcon />
         </Button>
       </DateFilter>
       <LocationFilter>
         <Button>
-          <IconWrapper src={locationIcon}></IconWrapper>
+          <LocationIcon />
         </Button>
       </LocationFilter>
     </Wrapper>
