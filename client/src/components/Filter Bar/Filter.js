@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import filterIcon from '../../assets/icons/filterIcon.svg';
+import { Button } from './Button';
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 5% 20% 20% 25% 15% 15%;
+  grid-template-columns: 10% 30% 30% 15% 15%;
   grid-template-rows: auto;
   justify-items: center;
   align-items: center;
@@ -18,12 +19,51 @@ const FilterIcon = styled.img`
   width: 28px;
   height: auto;
   justify-self: center;
+  align-self: center;
+`;
+
+const PriorityFilter = styled.div`
+  grid-column: 2 / 3;
+  justify-self: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid ${props => props.theme.colors.background};
+`;
+
+const StatusFilter = styled.div`
+  grid-column: 3 / 4;
+  justify-self: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid ${props => props.theme.colors.background};
+`;
+
+const DateFilter = styled.div`
+  grid-column: 4 / 5;
+  justify-self: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid ${props => props.theme.colors.background};
+`;
+
+const LocationFilter = styled.div`
+  grid-column: 5 / 6;
+  justify-self: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid ${props => props.theme.colors.background};
 `;
 
 export default function Filter() {
   return (
     <Wrapper>
       <FilterIcon src={filterIcon}></FilterIcon>
+      <PriorityFilter>
+        <Button>PRIORITY</Button>
+      </PriorityFilter>
+      <StatusFilter>STATUS</StatusFilter>
+      <DateFilter>D</DateFilter>
+      <LocationFilter>L</LocationFilter>
     </Wrapper>
   );
 }
