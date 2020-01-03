@@ -3,13 +3,15 @@ import styled from '@emotion/styled';
 
 const Input = styled.input`
   margin: 7px;
+  opacity: 0;
+  position: absolute;
 `;
 
 const Label = styled.label`
   width: 110px;
+  height: 28px;
   display: flex;
   justify-content: center;
-  align-content: center;
   align-items: center;
   margin: 1px;
   font-size: 14px;
@@ -28,7 +30,8 @@ const Label = styled.label`
     }};
 
   &:hover,
-  &:active {
+  &:active,
+  &:checked {
     background-color: ${props => {
       if (props.field === 'Active') {
         return props.theme.colors.status_active_hover;

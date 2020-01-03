@@ -3,14 +3,16 @@ import styled from '@emotion/styled';
 
 const Input = styled.input`
   margin: 7px;
+  opacity: 0;
+  position: absolute;
 `;
 
 const Label = styled.label`
   width: 110px;
+  height: 28px;
   display: flex;
-  justify-content: center;
-  align-content: center;
   align-items: center;
+  justify-content: center;
   margin: 1px;
   font-size: 14px;
   text-shadow: 1px 1px 1px #000000;

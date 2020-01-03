@@ -6,9 +6,10 @@
       "assigned": "Panche",
       "location": "west",
       "status": "inprogress",
-      "priority": "high",
+      "priority": "normal",
       "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      "id": 1
+      "id": 1,
+      "progress": "31"
     },
     {
       "name": "What is Lorem Ipsum?",
@@ -16,9 +17,10 @@
       "assigned": "Panche Panevski",
       "location": "south",
       "status": "active",
-      "priority": "normal",
+      "priority": "medium",
       "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      "id": 2
+      "id": 2,
+      "progress": "54"
     },
     {
       "name": "Test",
@@ -26,9 +28,10 @@
       "assigned": "Panche",
       "location": "west",
       "status": "active",
-      "priority": "medium",
+      "priority": "high",
       "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      "id": 3
+      "id": 3,
+      "progress": "30"
     }
   ],
   "orders": []

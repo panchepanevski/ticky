@@ -30,7 +30,6 @@ export default function NewTicket() {
   const [status, setStatus] = React.useState('');
   const [priority, setPriority] = React.useState('');
   const [details, setDetails] = React.useState('');
-  const [progress, setProgress] = React.useState('');
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -46,8 +45,7 @@ export default function NewTicket() {
         location,
         status,
         priority,
-        details,
-        progress
+        details
       })
     });
 
@@ -58,7 +56,6 @@ export default function NewTicket() {
     setStatus('');
     setPriority('');
     setDetails('');
-    setProgress('');
   }
 
   return (
@@ -89,10 +86,10 @@ export default function NewTicket() {
       <InputLabel>Location</InputLabel>
       <InputSelectBox value={location} onChange={event => setLocation(event.target.value)} required>
         <option value="select">Select Location</option>
-        <option value="east">East Building</option>
-        <option value="west">West Building</option>
-        <option value="south">South Building</option>
-        <option value="north">North Building</option>
+        <option value="east-building">East Building</option>
+        <option value="west-building">West Building</option>
+        <option value="south-building">South Building</option>
+        <option value="north-building">North Building</option>
       </InputSelectBox>
       <InputLabel>Status</InputLabel>
       <WrapperRadioButtons onChange={event => setStatus(event.target.value)}>

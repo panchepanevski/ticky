@@ -34,6 +34,7 @@ export default function TicketList() {
           status={ticket.status}
           priority={ticket.priority}
           details={ticket.details}
+          progress={ticket.progress}
         />
       ))}
     </Container>

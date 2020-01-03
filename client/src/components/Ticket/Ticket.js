@@ -85,6 +85,42 @@ const BorderLine = styled.div`
   margin-top: 30px;
 `;
 
+const ExtraDescription = styled.div`
+  display: ${props => (props.description ? 'block' : 'none')};
+  grid-column: 1 / 11;
+  grid-row: 5 / 6;
+  margin: 10px 0;
+`;
+
+const ExtraAssigned = styled.div`
+  display: ${props => (props.assignedUser ? 'block' : 'none')};
+  grid-column: 1 / 11;
+  grid-row: 5 / 6;
+  margin: 10px 0;
+`;
+
+const TicketLocation = styled.div`
+  display: ${props => (props.ticketLocation ? 'block' : 'none')};
+  grid-column: 1 / 11;
+  grid-row: 5 / 6;
+  margin: 10px 0;
+`;
+
+const TicketTimeDate = styled.div`
+  display: ${props => (props.ticketTimedate ? 'block' : 'none')};
+  grid-column: 1 / 11;
+  grid-row: 5 / 6;
+  margin: 10px 0;
+`;
+
+const Edit = styled.img`
+  grid-column: 10 / 11;
+  grid-row: 1 / 2;
+  width: 24px;
+  height: 24px;
+  margin-top: 20px;
+`;
+
 export default function Ticket({
   id,
   name,
@@ -94,49 +130,13 @@ export default function Ticket({
   assigned,
   location,
   timedate,
-  onClick
+  progress
 }) {
   const [description, setDescription] = React.useState(false);
   const [assignedUser, setAssignedUser] = React.useState(false);
   const [ticketLocation, setTicketLocation] = React.useState(false);
   const [ticketTimedate, setTicketTimedate] = React.useState(false);
-  const [progress, setProgress] = React.useState(0);
-
-  const ExtraDescription = styled.div`
-    display: ${description ? 'block' : 'none'};
-    grid-column: 1 / 11;
-    grid-row: 5 / 6;
-    margin: 10px 0;
-  `;
-
-  const ExtraAssigned = styled.div`
-    display: ${assignedUser ? 'block' : 'none'};
-    grid-column: 1 / 11;
-    grid-row: 5 / 6;
-    margin: 10px 0;
-  `;
-
-  const TicketLocation = styled.div`
-    display: ${ticketLocation ? 'block' : 'none'};
-    grid-column: 1 / 11;
-    grid-row: 5 / 6;
-    margin: 10px 0;
-  `;
-
-  const TicketTimeDate = styled.div`
-    display: ${ticketTimedate ? 'block' : 'none'};
-    grid-column: 1 / 11;
-    grid-row: 5 / 6;
-    margin: 10px 0;
-  `;
-
-  const Edit = styled.img`
-    grid-column: 10 / 11;
-    grid-row: 1 / 2;
-    width: 24px;
-    height: 24px;
-    margin-top: 20px;
-  `;
+  const [progressValue, setProgressValue] = React.useState(progress);
 
   return (
     <Container>
@@ -154,28 +154,32 @@ export default function Ticket({
       </PriorityWrapper>
       <ProgressWrapper>
         Progress:
-        <Progress value={progress} onChange={event => setProgress(parseInt(event.target.value))} />
+        <Progress
+          value={progressValue}
+          onChange={event => setProgressValue(parseInt(event.target.value))}
+          ticketId={id}
+        />
       </ProgressWrapper>
 
       <DescriptionWrapper onClick={() => setDescription(!description)}>
         Description &or;
       </DescriptionWrapper>
-      <ExtraDescription>{details}</ExtraDescription>
+      <ExtraDescription description={description}>{details}</ExtraDescription>
 
       <AssignedWrapper onClick={() => setAssignedUser(!assignedUser)}>
         <IconsWrapper src={userIcon}></IconsWrapper>
       </AssignedWrapper>
-      <ExtraAssigned>Assigned by: {assigned}</ExtraAssigned>
+      <ExtraAssigned assignedUser={assignedUser}>Assigned by: {assigned}</ExtraAssigned>
 
       <LocationWrapper onClick={() => setTicketLocation(!ticketLocation)}>
         <IconsWrapper src={locationIcon}></IconsWrapper>
       </LocationWrapper>
-      <TicketLocation>Location: {location}</TicketLocation>
+      <TicketLocation ticketLocation={ticketLocation}>Location: {location}</TicketLocation>
 
       <TimeDateWrapper onClick={() => setTicketTimedate(!ticketTimedate)}>
         <IconsWrapper src={timedateIcon}></IconsWrapper>
       </TimeDateWrapper>
-      <TicketTimeDate>Date and Time: {timedate}</TicketTimeDate>
+      <TicketTimeDate ticketTimedate={ticketTimedate}>Date and Time: {timedate}</TicketTimeDate>
       <BorderLine />
     </Container>
   );
