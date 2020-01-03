@@ -10,6 +10,7 @@ import AddOrder from './pages/AddOrder';
 import PageHeader from './components/PageHeader';
 import Landing from './pages/Landing';
 import TicketList from './pages/TicketList';
+import Filter from './components/Filter Bar/Filter';
 
 const Main = styled.main`
   overflow: auto;
@@ -27,6 +28,7 @@ function App() {
             </Route>
             <Route exact path="/">
               <Header />
+              <Filter />
               <TicketList />
             </Route>
             <Route path="/newticket">
