@@ -23,7 +23,7 @@ const FilterIconWrapper = styled.div`
   height: 100%;
   justify-self: center;
   align-self: center;
-  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
 const PriorityFilter = styled.div`
@@ -31,8 +31,7 @@ const PriorityFilter = styled.div`
   justify-self: center;
   width: 100%;
   height: 100%;
-  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
-  /* border: 1px solid ${props => props.theme.colors.background}; */
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
 const StatusFilter = styled.div`
@@ -40,8 +39,7 @@ const StatusFilter = styled.div`
   justify-self: center;
   width: 100%;
   height: 100%;
-  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
-  /* border: 1px solid ${props => props.theme.colors.background}; */
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
 const DateFilter = styled.div`
@@ -49,8 +47,7 @@ const DateFilter = styled.div`
   justify-self: center;
   width: 100%;
   height: 100%;
-  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
-  /* border: 1px solid ${props => props.theme.colors.background}; */
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
 const LocationFilter = styled.div`
@@ -58,8 +55,7 @@ const LocationFilter = styled.div`
   justify-self: center;
   width: 100%;
   height: 100%;
-  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.2);
-  /* border: 1px solid ${props => props.theme.colors.background}; */
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
 export default function Filter() {
