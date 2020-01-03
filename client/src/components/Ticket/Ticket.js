@@ -98,6 +98,29 @@ const ExtraAssigned = styled.div`
   grid-row: 5 / 6;
   margin: 10px 0;
 `;
+
+const TicketLocation = styled.div`
+  display: ${props => (props.ticketLocation ? 'block' : 'none')};
+  grid-column: 1 / 11;
+  grid-row: 5 / 6;
+  margin: 10px 0;
+`;
+
+const TicketTimeDate = styled.div`
+  display: ${props => (props.ticketTimedate ? 'block' : 'none')};
+  grid-column: 1 / 11;
+  grid-row: 5 / 6;
+  margin: 10px 0;
+`;
+
+const Edit = styled.img`
+  grid-column: 10 / 11;
+  grid-row: 1 / 2;
+  width: 24px;
+  height: 24px;
+  margin-top: 20px;
+`;
+
 export default function Ticket({
   id,
   name,
@@ -114,28 +137,6 @@ export default function Ticket({
   const [ticketLocation, setTicketLocation] = React.useState(false);
   const [ticketTimedate, setTicketTimedate] = React.useState(false);
   const [progressValue, setProgressValue] = React.useState(progress);
-
-  const TicketLocation = styled.div`
-    display: ${ticketLocation ? 'block' : 'none'};
-    grid-column: 1 / 11;
-    grid-row: 5 / 6;
-    margin: 10px 0;
-  `;
-
-  const TicketTimeDate = styled.div`
-    display: ${ticketTimedate ? 'block' : 'none'};
-    grid-column: 1 / 11;
-    grid-row: 5 / 6;
-    margin: 10px 0;
-  `;
-
-  const Edit = styled.img`
-    grid-column: 10 / 11;
-    grid-row: 1 / 2;
-    width: 24px;
-    height: 24px;
-    margin-top: 20px;
-  `;
 
   return (
     <Container>
@@ -163,7 +164,7 @@ export default function Ticket({
       <DescriptionWrapper onClick={() => setDescription(!description)}>
         Description &or;
       </DescriptionWrapper>
-      <ExtraDescription>{details}</ExtraDescription>
+      <ExtraDescription description={description}>{details}</ExtraDescription>
 
       <AssignedWrapper onClick={() => setAssignedUser(!assignedUser)}>
         <IconsWrapper src={userIcon}></IconsWrapper>
@@ -173,12 +174,12 @@ export default function Ticket({
       <LocationWrapper onClick={() => setTicketLocation(!ticketLocation)}>
         <IconsWrapper src={locationIcon}></IconsWrapper>
       </LocationWrapper>
-      <TicketLocation>Location: {location}</TicketLocation>
+      <TicketLocation ticketLocation={ticketLocation}>Location: {location}</TicketLocation>
 
       <TimeDateWrapper onClick={() => setTicketTimedate(!ticketTimedate)}>
         <IconsWrapper src={timedateIcon}></IconsWrapper>
       </TimeDateWrapper>
-      <TicketTimeDate>Date and Time: {timedate}</TicketTimeDate>
+      <TicketTimeDate ticketTimedate={ticketTimedate}>Date and Time: {timedate}</TicketTimeDate>
       <BorderLine />
     </Container>
   );
