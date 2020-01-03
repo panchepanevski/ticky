@@ -85,6 +85,19 @@ const BorderLine = styled.div`
   margin-top: 30px;
 `;
 
+const ExtraDescription = styled.div`
+  display: ${props => (props.description ? 'block' : 'none')};
+  grid-column: 1 / 11;
+  grid-row: 5 / 6;
+  margin: 10px 0;
+`;
+
+const ExtraAssigned = styled.div`
+  display: ${props => (props.assignedUser ? 'block' : 'none')};
+  grid-column: 1 / 11;
+  grid-row: 5 / 6;
+  margin: 10px 0;
+`;
 export default function Ticket({
   id,
   name,
@@ -94,27 +107,13 @@ export default function Ticket({
   assigned,
   location,
   timedate,
-  onClick
+  progress
 }) {
   const [description, setDescription] = React.useState(false);
   const [assignedUser, setAssignedUser] = React.useState(false);
   const [ticketLocation, setTicketLocation] = React.useState(false);
   const [ticketTimedate, setTicketTimedate] = React.useState(false);
-  const [progress, setProgress] = React.useState(0);
-
-  const ExtraDescription = styled.div`
-    display: ${description ? 'block' : 'none'};
-    grid-column: 1 / 11;
-    grid-row: 5 / 6;
-    margin: 10px 0;
-  `;
-
-  const ExtraAssigned = styled.div`
-    display: ${assignedUser ? 'block' : 'none'};
-    grid-column: 1 / 11;
-    grid-row: 5 / 6;
-    margin: 10px 0;
-  `;
+  const [progressValue, setProgressValue] = React.useState(progress);
 
   const TicketLocation = styled.div`
     display: ${ticketLocation ? 'block' : 'none'};
@@ -154,7 +153,11 @@ export default function Ticket({
       </PriorityWrapper>
       <ProgressWrapper>
         Progress:
-        <Progress value={progress} onChange={event => setProgress(parseInt(event.target.value))} />
+        <Progress
+          value={progressValue}
+          onChange={event => setProgressValue(parseInt(event.target.value))}
+          ticketId={id}
+        />
       </ProgressWrapper>
 
       <DescriptionWrapper onClick={() => setDescription(!description)}>
@@ -165,7 +168,7 @@ export default function Ticket({
       <AssignedWrapper onClick={() => setAssignedUser(!assignedUser)}>
         <IconsWrapper src={userIcon}></IconsWrapper>
       </AssignedWrapper>
-      <ExtraAssigned>Assigned by: {assigned}</ExtraAssigned>
+      <ExtraAssigned assignedUser={assignedUser}>Assigned by: {assigned}</ExtraAssigned>
 
       <LocationWrapper onClick={() => setTicketLocation(!ticketLocation)}>
         <IconsWrapper src={locationIcon}></IconsWrapper>
