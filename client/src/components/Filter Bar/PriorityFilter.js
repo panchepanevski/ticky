@@ -84,22 +84,20 @@ export default function PriorityFilter() {
   }
 
   React.useEffect(() => {
-    fetchTickets(filter);
-  }, [filter]);
+    fetchTickets();
+  }, [tickets, filter]);
 
   return (
     <Wrapper>
       <WrapperNormal>
-        {tickets.map(ticket => (
-          <Button
-            onClick={() => setFilter(ticket.priority)}
-            key={ticket.id}
-            priority={ticket.priority}
-          >
-            <NormalCircle />
-            Normal
-          </Button>
-        ))}
+        <Button
+          onClick={() => {
+            setFilter('/?priority=normal');
+          }}
+        >
+          <NormalCircle />
+          Normal
+        </Button>
       </WrapperNormal>
       <WrapperMedium>
         <Button
