@@ -72,7 +72,7 @@ const OnClickWrapper = styled.div`
   height: 30px;
 `;
 
-export default function Filter() {
+export default function Filter({ onFilterChange }) {
   const [priority, setPriority] = React.useState(false);
 
   return (
@@ -86,7 +86,9 @@ export default function Filter() {
         <PriorityWrapper>
           <Button onClick={() => setPriority(!priority)}>PRIORITY</Button>
         </PriorityWrapper>
-        <OnClickWrapper>{priority && <PriorityFilter />}</OnClickWrapper>
+        <OnClickWrapper>
+          {priority && <PriorityFilter onFilterChange={onFilterChange} />}
+        </OnClickWrapper>
         <StatusWrapper>
           <Button>STATUS</Button>
         </StatusWrapper>
