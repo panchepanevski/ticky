@@ -73,48 +73,23 @@ const HighCircle = styled.div`
   margin-right: -20px;
 `;
 
-export default function PriorityFilter() {
-  const [tickets, setTickets] = React.useState([]);
-  const [filter, setFilter] = React.useState('');
-
-  async function fetchTickets() {
-    const response = await fetch('http://localhost:8080/tickets');
-    const newTickets = await response.json();
-    setTickets(newTickets);
-  }
-
-  React.useEffect(() => {
-    fetchTickets();
-  }, [tickets, filter]);
-
+export default function PriorityFilter({ onFilterChange }) {
   return (
     <Wrapper>
       <WrapperNormal>
-        <Button
-          onClick={() => {
-            setFilter('/?priority=normal');
-          }}
-        >
+        <Button onClick={onFilterChange('normal')}>
           <NormalCircle />
           Normal
         </Button>
       </WrapperNormal>
       <WrapperMedium>
-        <Button
-          onClick={() => {
-            setFilter('/?priority=medium');
-          }}
-        >
+        <Button onClick={onFilterChange('medium')}>
           <MediumCircle />
           Medium
         </Button>
       </WrapperMedium>
       <WrapperHigh>
-        <Button
-          onClick={() => {
-            setFilter('/?priority=high');
-          }}
-        >
+        <Button onClick={onFilterChange('high')}>
           <HighCircle />
           High
         </Button>
