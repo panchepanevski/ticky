@@ -27,8 +27,6 @@ function App() {
               <Landing />
             </Route>
             <Route exact path="/">
-              <Header />
-              <Filter />
               <TicketList />
             </Route>
             <Route path="/newticket">
