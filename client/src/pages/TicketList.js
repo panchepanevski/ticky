@@ -19,7 +19,6 @@ export default function TicketList() {
   }
 
   let filter = useLocation().search;
-  console.log(filter);
 
   async function fetchTickets() {
     const response = await fetch(`http://localhost:8080/tickets${filter}`);
@@ -30,6 +29,8 @@ export default function TicketList() {
   React.useEffect(() => {
     fetchTickets();
   }, [filter]);
+
+  useQuery();
 
   return (
     <>
