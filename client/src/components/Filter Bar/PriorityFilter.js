@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 10% 31% 30% 24% 1fr;
+  grid-template-columns: 7% 27% 26% 21% 19%;
   grid-template-rows: 1fr;
   width: auto;
   height: 40px;
@@ -20,6 +21,10 @@ const WrapperMedium = styled.div`
 
 const WrapperHigh = styled.div`
   grid-column: 4 / 5;
+`;
+
+const WrapperAll = styled.div`
+  grid-column: 5 / 6;
 `;
 
 const Button = styled.button`
@@ -73,27 +78,53 @@ const HighCircle = styled.div`
   margin-right: -20px;
 `;
 
-export default function PriorityFilter({ onFilterChange }) {
+const AllCircle = styled.div`
+  position: absolute;
+  grid-column: 2 / 3;
+  width: 13px;
+  height: 13px;
+  border-radius: 30%;
+  background-color: ${props => props.theme.colors.tertiary};
+  margin-top: 1px;
+  margin-right: -20px;
+`;
+
+const LinkQuery = styled(Link)`
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px #000000;
+  color: ${props => props.theme.colors.primary};
+`;
+
+export default function PriorityFilter() {
   return (
     <Wrapper>
       <WrapperNormal>
-        <Button onClick={onFilterChange('normal')}>
+        <Button>
           <NormalCircle />
-          Normal
+          <LinkQuery to="/?priority=normal">Normal</LinkQuery>
         </Button>
       </WrapperNormal>
       <WrapperMedium>
-        <Button onClick={onFilterChange('medium')}>
+        <Button>
           <MediumCircle />
-          Medium
+          <LinkQuery to="/?priority=medium">Medium</LinkQuery>
         </Button>
       </WrapperMedium>
       <WrapperHigh>
-        <Button onClick={onFilterChange('high')}>
+        <Button>
           <HighCircle />
-          High
+          <LinkQuery to="/?priority=high">High</LinkQuery>
         </Button>
       </WrapperHigh>
+      <WrapperAll>
+        <Button>
+          <AllCircle />
+          <LinkQuery to="/">All</LinkQuery>
+        </Button>
+      </WrapperAll>
     </Wrapper>
   );
 }
