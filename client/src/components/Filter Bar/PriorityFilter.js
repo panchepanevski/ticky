@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 7% 27% 26% 21% 19%;
+  grid-template-columns: 7̀% 27% 26% 21% 19%;
   grid-template-rows: 1fr;
   width: auto;
   height: 40px;
