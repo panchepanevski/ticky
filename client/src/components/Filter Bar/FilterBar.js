@@ -4,21 +4,24 @@ import { Button } from './Button';
 import CalendarIcon from '../../assets/icons/CalendarIcon';
 import LocationIcon from '../../assets/icons/LocationIcon';
 import FilterIcon from '../../assets/icons/FilterIcon';
+import PriorityFilter from './PriorityFilter';
 
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 10% 30% 30% 15% 15%;
-  grid-template-rows: auto;
+  grid-template-rows: auto auto;
   justify-items: center;
   align-items: center;
   height: 30px;
   width: 100%;
+  margin-bottom: 25px;
   border-top: 1px solid ${props => props.theme.colors.background};
   background-color: ${props => props.theme.colors.elements_bg};
 `;
 
-const FilterIconWrapper = styled.div`
+const IconWrapper = styled.div`
   grid-column: 1 / 2;
+  grid-row: 1 / 2;
   width: 100%;
   height: 100%;
   justify-self: center;
@@ -26,63 +29,79 @@ const FilterIconWrapper = styled.div`
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
-const PriorityFilter = styled.div`
+const PriorityWrapper = styled.div`
   grid-column: 2 / 3;
+  grid-row: 1 / 2;
   justify-self: center;
   width: 100%;
   height: 100%;
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
-const StatusFilter = styled.div`
+const StatusWrapper = styled.div`
   grid-column: 3 / 4;
+  grid-row: 1 / 2;
   justify-self: center;
   width: 100%;
   height: 100%;
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
-const DateFilter = styled.div`
+const DateWrapper = styled.div`
   grid-column: 4 / 5;
+  grid-row: 1 / 2;
   justify-self: center;
   width: 100%;
   height: 100%;
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
-const LocationFilter = styled.div`
+const LocationWrapper = styled.div`
   grid-column: 5 / 6;
+  grid-row: 1 / 2;
   justify-self: center;
   width: 100%;
   height: 100%;
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
-export default function Filter() {
+const OnClickWrapper = styled.div`
+  display: ${props => (props.priority ? 'block' : 'none')};
+  grid-column: 1 / 6;
+  grid-row: 2 / 3;
+  width: 100%;
+  height: 30px;
+`;
+
+export default function FilterBar() {
+  const [priority, setPriority] = React.useState(false);
+
   return (
     <Wrapper>
-      <FilterIconWrapper>
+      <IconWrapper>
         <Button>
           <FilterIcon />
         </Button>
-      </FilterIconWrapper>
-
-      <PriorityFilter>
-        <Button>PRIORITY</Button>
-      </PriorityFilter>
-      <StatusFilter>
+      </IconWrapper>
+      <PriorityWrapper>
+        <Button onClick={() => setPriority(!priority)}>PRIORITY</Button>
+      </PriorityWrapper>
+      <OnClickWrapper priority={priority}>
+        <PriorityFilter />
+      </OnClickWrapper>
+      <StatusWrapper>
         <Button>STATUS</Button>
-      </StatusFilter>
-      <DateFilter>
+      </StatusWrapper>
+      <DateWrapper>
         <Button>
           <CalendarIcon />
         </Button>
-      </DateFilter>
-      <LocationFilter>
+      </DateWrapper>
+      <LocationWrapper>
         <Button>
           <LocationIcon />
         </Button>
-      </LocationFilter>
+      </LocationWrapper>
     </Wrapper>
   );
 }
