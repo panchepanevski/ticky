@@ -5,6 +5,7 @@ import CalendarIcon from '../../assets/icons/CalendarIcon';
 import LocationIcon from '../../assets/icons/LocationIcon';
 import FilterIcon from '../../assets/icons/FilterIcon';
 import PriorityFilter from './PriorityFilter';
+import StatusFilter from './StatusFilter';
 
 const Wrapper = styled.div`
   display: grid;
@@ -65,8 +66,16 @@ const LocationWrapper = styled.div`
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
-const OnClickWrapper = styled.div`
+const OnClickWrapperPriority = styled.div`
   display: ${props => (props.priority ? 'block' : 'none')};
+  grid-column: 1 / 6;
+  grid-row: 2 / 3;
+  width: 100%;
+  height: 30px;
+`;
+
+const OnClickWrapperStatus = styled.div`
+  display: ${props => (props.status ? 'block' : 'none')};
   grid-column: 1 / 6;
   grid-row: 2 / 3;
   width: 100%;
@@ -75,6 +84,7 @@ const OnClickWrapper = styled.div`
 
 export default function FilterBar() {
   const [priority, setPriority] = React.useState(false);
+  const [status, setStatus] = React.useState(false);
 
   return (
     <Wrapper>
@@ -86,12 +96,15 @@ export default function FilterBar() {
       <PriorityWrapper>
         <Button onClick={() => setPriority(!priority)}>PRIORITY</Button>
       </PriorityWrapper>
-      <OnClickWrapper priority={priority}>
+      <OnClickWrapperPriority priority={priority}>
         <PriorityFilter />
-      </OnClickWrapper>
+      </OnClickWrapperPriority>
       <StatusWrapper>
-        <Button>STATUS</Button>
+        <Button onClick={() => setStatus(!status)}>STATUS</Button>
       </StatusWrapper>
+      <OnClickWrapperStatus status={status}>
+        <StatusFilter />
+      </OnClickWrapperStatus>
       <DateWrapper>
         <Button>
           <CalendarIcon />

@@ -4,22 +4,22 @@ import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1% 27% 26% 21% 19%;
+  grid-template-columns: 1% 23% 32% 30% 17%;
   grid-template-rows: 1fr;
   width: auto;
   height: 40px;
   margin: 10px 0;
 `;
 
-const WrapperNormal = styled.div`
+const WrapperActive = styled.div`
   grid-column: 2 / 3;
 `;
 
-const WrapperMedium = styled.div`
+const WrapperInProgress = styled.div`
   grid-column: 3 / 4;
 `;
 
-const WrapperHigh = styled.div`
+const WrapperCompleted = styled.div`
   grid-column: 4 / 5;
 `;
 
@@ -46,34 +46,34 @@ const Button = styled.button`
   }
 `;
 
-const NormalCircle = styled.div`
+const ActiveCircle = styled.div`
   position: absolute;
   grid-column: 2 / 3;
   width: 13px;
   height: 13px;
   border-radius: 30%;
-  background-color: ${props => props.theme.colors.priority_normal};
+  background-color: ${props => props.theme.colors.status_active};
   margin-top: 1px;
   margin-right: 12px;
 `;
 
-const MediumCircle = styled.div`
+const InProgressCircle = styled.div`
   position: absolute;
   grid-column: 2 / 3;
   width: 13px;
   height: 13px;
   border-radius: 30%;
-  background-color: ${props => props.theme.colors.priority_medium};
+  background-color: ${props => props.theme.colors.status_in_progres};
   margin-top: 1px;
 `;
 
-const HighCircle = styled.div`
+const CompletedCircle = styled.div`
   position: absolute;
   grid-column: 2 / 3;
   width: 13px;
   height: 13px;
   border-radius: 30%;
-  background-color: ${props => props.theme.colors.priority_high};
+  background-color: ${props => props.theme.colors.status_completed};
   margin-top: 1px;
   margin-right: -20px;
 `;
@@ -98,27 +98,27 @@ const LinkQuery = styled(Link)`
   color: ${props => props.theme.colors.primary};
 `;
 
-export default function PriorityFilter() {
+export default function StatusFilter() {
   return (
     <Wrapper>
-      <WrapperNormal>
+      <WrapperActive>
         <Button>
-          <NormalCircle />
-          <LinkQuery to="/?priority=normal">Normal</LinkQuery>
+          <ActiveCircle />
+          <LinkQuery to="/?status=active">Active</LinkQuery>
         </Button>
-      </WrapperNormal>
-      <WrapperMedium>
+      </WrapperActive>
+      <WrapperInProgress>
         <Button>
-          <MediumCircle />
-          <LinkQuery to="/?priority=medium">Medium</LinkQuery>
+          <InProgressCircle />
+          <LinkQuery to="/?status=inprogress">In progress</LinkQuery>
         </Button>
-      </WrapperMedium>
-      <WrapperHigh>
+      </WrapperInProgress>
+      <WrapperCompleted>
         <Button>
-          <HighCircle />
-          <LinkQuery to="/?priority=high">High</LinkQuery>
+          <CompletedCircle />
+          <LinkQuery to="/?status=completed">Completed</LinkQuery>
         </Button>
-      </WrapperHigh>
+      </WrapperCompleted>
       <WrapperAll>
         <Button>
           <AllCircle />
