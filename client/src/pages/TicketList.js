@@ -14,11 +14,13 @@ const Container = styled.div`
 export default function TicketList() {
   const [tickets, setTickets] = React.useState([]);
 
+  //FILTER
+  let filter = useLocation().search;
+
   function useQuery() {
     return new URLSearchParams(useLocation().search);
   }
-
-  let filter = useLocation().search;
+  //FILTER
 
   async function fetchTickets() {
     const response = await fetch(`http://localhost:8080/tickets${filter}`);
