@@ -129,7 +129,7 @@ export default function Ticket({
   priority,
   assigned,
   location,
-  timedate,
+  timestamp,
   progress
 }) {
   const [description, setDescription] = React.useState(false);
@@ -138,20 +138,24 @@ export default function Ticket({
   const [ticketTimedate, setTicketTimedate] = React.useState(false);
   const [progressValue, setProgressValue] = React.useState(progress);
 
+  const date = new Date(timestamp);
   return (
     <Container>
       <TitleWrapper>
         <Title>{name}</Title>
       </TitleWrapper>
       <Edit src={editIcon}></Edit>
+
       <StatusWrapper>
         Status:
         <Status ticketId={id} value={status} />
       </StatusWrapper>
+
       <PriorityWrapper>
         Priority:
         <Priority ticketId={id} value={priority} />
       </PriorityWrapper>
+
       <ProgressWrapper>
         Progress:
         <Progress
@@ -179,7 +183,9 @@ export default function Ticket({
       <TimeDateWrapper onClick={() => setTicketTimedate(!ticketTimedate)}>
         <IconsWrapper src={timedateIcon}></IconsWrapper>
       </TimeDateWrapper>
-      <TicketTimeDate ticketTimedate={ticketTimedate}>Date and Time: {timedate}</TicketTimeDate>
+      <TicketTimeDate ticketTimedate={ticketTimedate}>
+        Date and Time: {date.toLocaleString()}
+      </TicketTimeDate>
       <BorderLine />
     </Container>
   );
