@@ -40,18 +40,7 @@ export default function TicketList() {
       <FilterBar />
       <Container>
         {tickets.map(ticket => (
-          <Ticket
-            key={ticket.id}
-            id={ticket.id}
-            name={ticket.name}
-            timedate={ticket.timedate}
-            assigned={ticket.assigned}
-            location={ticket.location}
-            status={ticket.status}
-            priority={ticket.priority}
-            details={ticket.details}
-            progress={ticket.progress}
-          />
+          <Ticket key={ticket.id} {...ticket} />
         ))}
       </Container>
     </>
