@@ -6,6 +6,7 @@ import LocationIcon from '../../assets/icons/LocationIcon';
 import FilterIcon from '../../assets/icons/FilterIcon';
 import PriorityFilter from './PriorityFilter';
 import StatusFilter from './StatusFilter';
+import LocationFilter from './LocationFilter';
 
 const Wrapper = styled.div`
   display: grid;
@@ -82,9 +83,18 @@ const OnClickWrapperStatus = styled.div`
   height: 30px;
 `;
 
+const OnClickWrapperLocation = styled.div`
+  display: ${props => (props.location ? 'block' : 'none')};
+  grid-column: 1 / 6;
+  grid-row: 2 / 3;
+  width: 100%;
+  height: 30px;
+`;
+
 export default function FilterBar() {
   const [priority, setPriority] = React.useState(false);
   const [status, setStatus] = React.useState(false);
+  const [location, setLocation] = React.useState(false);
 
   return (
     <Wrapper>
@@ -111,10 +121,13 @@ export default function FilterBar() {
         </Button>
       </DateWrapper>
       <LocationWrapper>
-        <Button>
+        <Button onClick={() => setLocation(!location)}>
           <LocationIcon />
         </Button>
       </LocationWrapper>
+      <OnClickWrapperLocation location={location}>
+        <LocationFilter />
+      </OnClickWrapperLocation>
     </Wrapper>
   );
 }
