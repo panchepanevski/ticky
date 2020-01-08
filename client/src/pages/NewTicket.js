@@ -22,14 +22,16 @@ const WrapperRadioButtons = styled.div`
 `;
 
 export default function NewTicket() {
-  const now = new Date().toLocaleString();
   const [name, setName] = React.useState('');
-  const [timedate, setTimedate] = React.useState(now);
+  const [date, setDate] = React.useState(new Date());
   const [assigned, setAssigned] = React.useState('');
   const [location, setLocation] = React.useState('');
   const [status, setStatus] = React.useState('');
   const [priority, setPriority] = React.useState('');
   const [details, setDetails] = React.useState('');
+
+  let isoDateString = date.toISOString();
+  isoDateString = isoDateString.substring(0, 19);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -40,7 +42,7 @@ export default function NewTicket() {
       },
       body: JSON.stringify({
         name,
-        timedate,
+        timestamp: date.getTime(),
         assigned,
         location,
         status,
@@ -50,7 +52,7 @@ export default function NewTicket() {
     });
 
     setName('');
-    setTimedate('');
+    setDate(new Date());
     setAssigned('');
     setLocation('');
     setStatus('');
@@ -71,9 +73,9 @@ export default function NewTicket() {
       />
       <InputLabel>Date and Time</InputLabel>
       <InputField
-        type="datetime"
-        value={timedate}
-        onChange={event => setTimedate(event.target.value)}
+        type="datetime-local"
+        defaultValue={isoDateString}
+        onChange={event => setDate(new Date(event.target.value))}
         required
       />
       <InputLabel>Assigned by</InputLabel>
