@@ -138,6 +138,30 @@ export default function Ticket({
   const [ticketTimedate, setTicketTimedate] = React.useState(false);
   const [progressValue, setProgressValue] = React.useState(progress);
 
+  function handleClick(filter) {
+    if (filter === 'description') {
+      setDescription(!description);
+      setAssignedUser(false);
+      setTicketLocation(false);
+      setTicketTimedate(false);
+    } else if (filter === 'assignedUser') {
+      setDescription(false);
+      setAssignedUser(!assignedUser);
+      setTicketLocation(false);
+      setTicketTimedate(false);
+    } else if (filter === 'ticketLocation') {
+      setDescription(false);
+      setAssignedUser(false);
+      setTicketLocation(!ticketLocation);
+      setTicketTimedate(false);
+    } else if (filter === 'ticketTimedate') {
+      setDescription(false);
+      setAssignedUser(false);
+      setTicketLocation(false);
+      setTicketTimedate(!ticketTimedate);
+    }
+  }
+
   const date = new Date(timestamp);
   return (
     <Container>
@@ -165,22 +189,22 @@ export default function Ticket({
         />
       </ProgressWrapper>
 
-      <DescriptionWrapper onClick={() => setDescription(!description)}>
+      <DescriptionWrapper onClick={() => handleClick('description')}>
         Description &#x025BE;
       </DescriptionWrapper>
       <ExtraDescription description={description}>{details}</ExtraDescription>
 
-      <AssignedWrapper onClick={() => setAssignedUser(!assignedUser)}>
+      <AssignedWrapper onClick={() => handleClick('assignedUser')}>
         <IconsWrapper src={userIcon}></IconsWrapper>
       </AssignedWrapper>
       <ExtraAssigned assignedUser={assignedUser}>Assigned by: {assigned}</ExtraAssigned>
 
-      <LocationWrapper onClick={() => setTicketLocation(!ticketLocation)}>
+      <LocationWrapper onClick={() => handleClick('ticketLocation')}>
         <IconsWrapper src={locationIcon}></IconsWrapper>
       </LocationWrapper>
       <TicketLocation ticketLocation={ticketLocation}>Location: {location}</TicketLocation>
 
-      <TimeDateWrapper onClick={() => setTicketTimedate(!ticketTimedate)}>
+      <TimeDateWrapper onClick={() => handleClick('ticketTimedate')}>
         <IconsWrapper src={timedateIcon}></IconsWrapper>
       </TimeDateWrapper>
       <TicketTimeDate ticketTimedate={ticketTimedate}>
