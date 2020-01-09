@@ -11,7 +11,7 @@ import Landing from './pages/Landing';
 import TicketList from './pages/TicketList';
 
 const Main = styled.main`
-  overflow: auto;
+  overflow: none;
 `;
 
 function App() {
