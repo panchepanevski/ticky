@@ -106,6 +106,30 @@ export default function FilterBar() {
   const [location, setLocation] = React.useState(false);
   const [date, setDate] = React.useState(false);
 
+  function handleClick(filter) {
+    if (filter === 'priority') {
+      setPriority(!priority);
+      setStatus(false);
+      setLocation(false);
+      setDate(false);
+    } else if (filter === 'status') {
+      setPriority(false);
+      setStatus(!status);
+      setLocation(false);
+      setDate(false);
+    } else if (filter === 'location') {
+      setPriority(false);
+      setStatus(false);
+      setLocation(!location);
+      setDate(false);
+    } else if (filter === 'date') {
+      setPriority(false);
+      setStatus(false);
+      setLocation(false);
+      setDate(!date);
+    }
+  }
+
   return (
     <Wrapper>
       <IconWrapper>
@@ -114,19 +138,19 @@ export default function FilterBar() {
         </Button>
       </IconWrapper>
       <PriorityWrapper>
-        <Button onClick={() => setPriority(!priority)}>PRIORITY</Button>
+        <Button onClick={() => handleClick('priority')}>PRIORITY</Button>
       </PriorityWrapper>
       <OnClickWrapperPriority priority={priority}>
         <PriorityFilter />
       </OnClickWrapperPriority>
       <StatusWrapper>
-        <Button onClick={() => setStatus(!status)}>STATUS</Button>
+        <Button onClick={() => handleClick('status')}>STATUS</Button>
       </StatusWrapper>
       <OnClickWrapperStatus status={status}>
         <StatusFilter />
       </OnClickWrapperStatus>
       <DateWrapper>
-        <Button onClick={() => setDate(!date)}>
+        <Button onClick={() => handleClick('date')}>
           <CalendarIcon />
         </Button>
       </DateWrapper>
@@ -134,7 +158,7 @@ export default function FilterBar() {
         <DateFilter />
       </OnClickWrapperDate>
       <LocationWrapper>
-        <Button onClick={() => setLocation(!location)}>
+        <Button onClick={() => handleClick('location')}>
           <LocationIcon />
         </Button>
       </LocationWrapper>
