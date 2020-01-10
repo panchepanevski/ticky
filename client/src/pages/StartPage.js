@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo/logoSmall.svg';
+import { Redirect } from 'react-router-dom';
 
 const PageWrapper = styled.div`
   width: 100vw;
@@ -69,20 +70,20 @@ const LogoText = styled.h1`
   }
 `;
 
-const Path = styled(Link)`
-  width: auto;
-  height: auto;
-  text-decoration: none;
-  color: ${props => props.theme.colors.primary};
-`;
+export default function StartPage() {
+  const [redirect, setRedirect] = React.useState(false);
 
-export default function Landing() {
+  function toTicketPage() {
+    setTimeout(() => setRedirect(true), 1500);
+  }
+
+  toTicketPage();
+
   return (
     <PageWrapper>
-      <Path to="/">
-        <LogoWrapper src={logo} />
-        <LogoText>TICKY</LogoText>
-      </Path>
+      {redirect ? <Redirect to="/" /> : true}
+      <LogoWrapper src={logo} />
+      <LogoText>TICKY</LogoText>
     </PageWrapper>
   );
 }
