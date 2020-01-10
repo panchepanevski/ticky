@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NewTicket from './pages/NewTicket';
 import AddOrder from './pages/AddOrder';
 import PageHeader from './components/Header/PageHeader';
-import Landing from './pages/Landing';
+import StartPage from './pages/StartPage';
 import TicketList from './pages/TicketList';
 
 const Main = styled.main`
@@ -21,8 +21,8 @@ function App() {
       <Router>
         <Main>
           <Switch>
-            <Route path="/landing">
-              <Landing />
+            <Route path="/startpage">
+              <StartPage />
             </Route>
             <Route exact path="/">
               <TicketList />
