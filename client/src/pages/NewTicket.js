@@ -6,8 +6,7 @@ import { InputSelectBox } from '../components/InputFields/InputSelectBox';
 import { InputDescription } from '../components/InputFields/InputDescription';
 import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { TextStyledH1 } from '../components/TextStyledH1';
-import PriorityRadioButtons from '../components/InputFields/PriorityRadioButtons';
-import StatusRadioButtons from '../components/InputFields/StatusRadioButtons';
+import RadioButton from '../components/InputFields/RadioButton';
 
 const InputForm = styled.form`
   display: flex;
@@ -93,29 +92,67 @@ export default function NewTicket() {
         <option value="south-building">South Building</option>
         <option value="north-building">North Building</option>
       </InputSelectBox>
+
       <InputLabel>Status</InputLabel>
       <WrapperRadioButtons onChange={event => setStatus(event.target.value)}>
-        <StatusRadioButtons name="status" value="active" field="Active" required>
+        <RadioButton
+          active={status.includes('active')}
+          name="status"
+          value="active"
+          field="Active"
+          required
+        >
           Active
-        </StatusRadioButtons>
-        <StatusRadioButtons name="status" value="inprogress" field="In Progress" required>
+        </RadioButton>
+        <RadioButton
+          active={status.includes('inprogress')}
+          name="status"
+          value="inprogress"
+          field="In Progress"
+          required
+        >
           In Progress
-        </StatusRadioButtons>
-        <StatusRadioButtons name="status" value="completed" field="Completed" required>
+        </RadioButton>
+        <RadioButton
+          active={status.includes('completed')}
+          name="status"
+          value="completed"
+          field="Completed"
+          required
+        >
           Completed
-        </StatusRadioButtons>
+        </RadioButton>
       </WrapperRadioButtons>
+
       <InputLabel>Priority</InputLabel>
       <WrapperRadioButtons onChange={event => setPriority(event.target.value)}>
-        <PriorityRadioButtons name="priority" value="normal" field="Normal" required>
+        <RadioButton
+          active={priority.includes('normal')}
+          name="priority"
+          value="normal"
+          field="Normal"
+          required
+        >
           Normal
-        </PriorityRadioButtons>
-        <PriorityRadioButtons name="priority" value="medium" field="Medium" required>
+        </RadioButton>
+        <RadioButton
+          active={priority.includes('medium')}
+          name="priority"
+          value="medium"
+          field="Medium"
+          required
+        >
           Medium
-        </PriorityRadioButtons>
-        <PriorityRadioButtons name="priority" value="high" field="High" required>
+        </RadioButton>
+        <RadioButton
+          active={priority.includes('high')}
+          name="priority"
+          value="high"
+          field="High"
+          required
+        >
           High
-        </PriorityRadioButtons>
+        </RadioButton>
       </WrapperRadioButtons>
       <InputLabel>Description</InputLabel>
       <InputDescription

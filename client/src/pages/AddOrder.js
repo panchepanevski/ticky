@@ -5,7 +5,7 @@ import { InputField } from '../components/InputFields/InputField';
 import { InputDescription } from '../components/InputFields/InputDescription';
 import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { TextStyledH1 } from '../components/TextStyledH1';
-import PriorityRadioButtons from '../components/InputFields/PriorityRadioButtons';
+import RadioButton from '../components/InputFields/RadioButton';
 
 const InputForm = styled.form`
   display: flex;
@@ -96,15 +96,33 @@ export default function AddOrder() {
       />
       <InputLabel>Priority</InputLabel>
       <WrapperRadioButtons onChange={event => setPriority(event.target.value)}>
-        <PriorityRadioButtons name="priority" value="normal" field="Normal" required>
+        <RadioButton
+          active={priority.includes('normal')}
+          name="priority"
+          value="normal"
+          field="Normal"
+          required
+        >
           Normal
-        </PriorityRadioButtons>
-        <PriorityRadioButtons name="priority" value="medium" field="Medium" required>
+        </RadioButton>
+        <RadioButton
+          active={priority.includes('medium')}
+          name="priority"
+          value="medium"
+          field="Medium"
+          required
+        >
           Medium
-        </PriorityRadioButtons>
-        <PriorityRadioButtons name="priority" value="high" field="High" required>
+        </RadioButton>
+        <RadioButton
+          active={priority.includes('high')}
+          name="priority"
+          value="high"
+          field="High"
+          required
+        >
           High
-        </PriorityRadioButtons>
+        </RadioButton>
       </WrapperRadioButtons>
       <InputLabel>Description</InputLabel>
       <InputDescription
