@@ -9,12 +9,13 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  align-content: center;
 `;
 
 const LogoWrapper = styled.img`
   width: auto;
   height: 150px;
-  margin-top: 40%;
   backface-visibility: visible !important;
   animation: flipIn 1s;
 
@@ -42,10 +43,8 @@ const LogoWrapper = styled.img`
 `;
 
 const LogoText = styled.h1`
-  justify-content: flex-end;
   font-size: 24px;
   letter-spacing: 9px;
-  margin-left: 5px;
   animation: flipIn 1.3s;
 
   @keyframes flipIn {
@@ -71,57 +70,27 @@ const LogoText = styled.h1`
   }
 `;
 
-const GoButton = styled(Link)`
-  text-transform: uppercase;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 900;
-  text-shadow: 1px 1px 1px #000000;
+const Button = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: auto;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  outline: none;
   color: ${props => props.theme.colors.primary};
-  margin-top: 50%;
-  animation: fadeOutRight 1s;
-  animation-delay: 1.5s;
-  backface-visibility: visible !important;
-  &:hover,
-  &:active {
-    color: ${props => props.theme.colors.tertiary};
-    transition: 0.4s;
-
-    @keyframes fadeOutRight {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-        transform: translate3d(100%, 0, 0);
-      }
-    }
-  }
-`;
-
-const Span = styled.span`
-  font-size: 22px;
-  margin-left: 10px;
-  color: ${props => props.theme.colors.tertiary};
-  &:hover {
-    color: ${props => props.theme.colors.tertiary};
-  }
-`;
-
-const StyleP = styled.p`
-  color: ${props => props.theme.colors.tertiary};
-  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
 `;
 
 export default function Landing() {
   return (
     <PageWrapper>
-      <LogoWrapper src={logo} />
-      <LogoText>TICKY</LogoText>
-      <GoButton to="/">
-        Lets Go<Span>&rarr;</Span>
-      </GoButton>
-      <StyleP>Stop starting, start finishing</StyleP>
+      <Button to="/">
+        <LogoWrapper src={logo} />
+        <LogoText>TICKY</LogoText>
+      </Button>
     </PageWrapper>
   );
 }
