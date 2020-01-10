@@ -46,6 +46,9 @@ const LogoText = styled.h1`
   font-size: 24px;
   letter-spacing: 9px;
   animation: flipIn 1.3s;
+  display: flex;
+  justify-content: center;
+  margin-left: 8px;
 
   @keyframes flipIn {
     from {
