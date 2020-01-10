@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 import logo from '../assets/logo/logoSmall.svg';
 import { Redirect } from 'react-router-dom';
 
