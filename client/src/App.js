@@ -4,6 +4,7 @@ import GlobalStyles from './GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
 import darkTheme from './themes/darkTheme';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Spring } from 'react-spring/renderprops';
 import NewTicket from './pages/NewTicket';
 import AddOrder from './pages/AddOrder';
 import PageHeader from './components/Header/PageHeader';
@@ -25,15 +26,45 @@ function App() {
               <StartPage />
             </Route>
             <Route exact path="/">
-              <TicketList />
+              <Spring
+                from={{ opacity: 0, marginBottom: -500 }}
+                to={{ opacity: 1, marginBottom: 0 }}
+                config={{ delay: 250, duration: 250 }}
+              >
+                {props => (
+                  <div style={props}>
+                    <TicketList />
+                  </div>
+                )}
+              </Spring>
             </Route>
             <Route path="/newticket">
               <PageHeader />
-              <NewTicket />
+              <Spring
+                from={{ opacity: 0, marginBottom: -500 }}
+                to={{ opacity: 1, marginBottom: 0 }}
+                config={{ delay: 250, duration: 250 }}
+              >
+                {props => (
+                  <div style={props}>
+                    <NewTicket />
+                  </div>
+                )}
+              </Spring>
             </Route>
             <Route path="/addorder">
               <PageHeader />
-              <AddOrder />
+              <Spring
+                from={{ opacity: 0, marginBottom: -500 }}
+                to={{ opacity: 1, marginBottom: 0 }}
+                config={{ delay: 250, duration: 250 }}
+              >
+                {props => (
+                  <div style={props}>
+                    <AddOrder />
+                  </div>
+                )}
+              </Spring>
             </Route>
           </Switch>
         </Main>
