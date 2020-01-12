@@ -85,6 +85,14 @@ const BorderLine = styled.div`
   margin-top: 30px;
 `;
 
+const Edit = styled.img`
+  grid-column: 10 / 11;
+  grid-row: 1 / 2;
+  width: 24px;
+  height: 24px;
+  margin-top: 20px;
+`;
+
 const ExtraDescription = styled.div`
   display: ${props => (props.description ? 'block' : 'none')};
   grid-column: 1 / 11;
@@ -113,14 +121,6 @@ const TicketTimeDate = styled.div`
   margin: 10px 0;
 `;
 
-const Edit = styled.img`
-  grid-column: 10 / 11;
-  grid-row: 1 / 2;
-  width: 24px;
-  height: 24px;
-  margin-top: 20px;
-`;
-
 export default function Ticket({
   id,
   name,
@@ -137,6 +137,7 @@ export default function Ticket({
   const [ticketLocation, setTicketLocation] = React.useState(false);
   const [ticketTimedate, setTicketTimedate] = React.useState(false);
   const [progressValue, setProgressValue] = React.useState(progress);
+  const date = new Date(timestamp);
 
   function handleClick(filter) {
     if (filter === 'description') {
@@ -162,7 +163,6 @@ export default function Ticket({
     }
   }
 
-  const date = new Date(timestamp);
   return (
     <Container>
       <TitleWrapper>

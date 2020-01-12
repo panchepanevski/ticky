@@ -10,6 +10,7 @@ import AddOrder from './pages/AddOrder';
 import PageHeader from './components/Header/PageHeader';
 import StartPage from './pages/StartPage';
 import TicketList from './pages/TicketList';
+import OrderList from './pages/OrderList';
 
 const Main = styled.main`
   overflow: none;
@@ -53,7 +54,6 @@ function App() {
               </Spring>
             </Route>
             <Route path="/addorder">
-              <PageHeader />
               <Spring
                 from={{ opacity: 0, marginBottom: -500 }}
                 to={{ opacity: 1, marginBottom: 0 }}
@@ -62,6 +62,19 @@ function App() {
                 {props => (
                   <div style={props}>
                     <AddOrder />
+                  </div>
+                )}
+              </Spring>
+            </Route>
+            <Route path="/orderlist">
+              <Spring
+                from={{ opacity: 0, marginBottom: -500 }}
+                to={{ opacity: 1, marginBottom: 0 }}
+                config={{ delay: 250, duration: 250 }}
+              >
+                {props => (
+                  <div style={props}>
+                    <OrderList />
                   </div>
                 )}
               </Spring>
