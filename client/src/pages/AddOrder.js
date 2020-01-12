@@ -6,6 +6,7 @@ import { InputDescription } from '../components/InputFields/InputDescription';
 import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { TextStyledH1 } from '../components/TextStyledH1';
 import RadioButton from '../components/InputFields/RadioButton';
+import OrdersHeader from '../components/Header/OrdersHeader';
 
 const InputForm = styled.form`
   display: flex;
@@ -56,83 +57,86 @@ export default function AddOrder() {
   }
 
   return (
-    <InputForm onSubmit={handleSubmit}>
-      <TextStyledH1>Add Order</TextStyledH1>
-      <InputLabel>Name of the required part</InputLabel>
-      <InputField
-        type="text"
-        value={name}
-        onChange={event => setName(event.target.value)}
-        autoFocus
-        required
-      />
-      <InputLabel>Serial Number</InputLabel>
-      <InputField
-        type="text"
-        value={serial}
-        onChange={event => setSerial(event.target.value)}
-        required
-      />
-      <InputLabel>Manufacturer</InputLabel>
-      <InputField
-        type="text"
-        value={manufacturer}
-        onChange={event => setManufacturer(event.target.value)}
-        required
-      />
-      <InputLabel>Quantity</InputLabel>
-      <InputField
-        type="text"
-        value={quantity}
-        onChange={event => setQuantity(event.target.value)}
-        required
-      />
-      <InputLabel>Ordered by</InputLabel>
-      <InputField
-        type="text"
-        value={orderedby}
-        onChange={event => setOrderedby(event.target.value)}
-        required
-      />
-      <InputLabel>Priority</InputLabel>
-      <WrapperRadioButtons onChange={event => setPriority(event.target.value)}>
-        <RadioButton
-          active={priority.includes('normal')}
-          name="priority"
-          value="normal"
-          field="Normal"
+    <>
+      <OrdersHeader />
+      <InputForm onSubmit={handleSubmit}>
+        <TextStyledH1>Add Order</TextStyledH1>
+        <InputLabel>Name of the required part</InputLabel>
+        <InputField
+          type="text"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          autoFocus
           required
-        >
-          Normal
-        </RadioButton>
-        <RadioButton
-          active={priority.includes('medium')}
-          name="priority"
-          value="medium"
-          field="Medium"
+        />
+        <InputLabel>Serial Number</InputLabel>
+        <InputField
+          type="text"
+          value={serial}
+          onChange={event => setSerial(event.target.value)}
           required
-        >
-          Medium
-        </RadioButton>
-        <RadioButton
-          active={priority.includes('high')}
-          name="priority"
-          value="high"
-          field="High"
+        />
+        <InputLabel>Manufacturer</InputLabel>
+        <InputField
+          type="text"
+          value={manufacturer}
+          onChange={event => setManufacturer(event.target.value)}
           required
-        >
-          High
-        </RadioButton>
-      </WrapperRadioButtons>
-      <InputLabel>Description</InputLabel>
-      <InputDescription
-        type="text"
-        rows="10"
-        value={description}
-        onChange={event => setDescription(event.target.value)}
-        required
-      />
-      <SubmitButton>Add Order</SubmitButton>
-    </InputForm>
+        />
+        <InputLabel>Quantity</InputLabel>
+        <InputField
+          type="text"
+          value={quantity}
+          onChange={event => setQuantity(event.target.value)}
+          required
+        />
+        <InputLabel>Ordered by</InputLabel>
+        <InputField
+          type="text"
+          value={orderedby}
+          onChange={event => setOrderedby(event.target.value)}
+          required
+        />
+        <InputLabel>Priority</InputLabel>
+        <WrapperRadioButtons onChange={event => setPriority(event.target.value)}>
+          <RadioButton
+            active={priority.includes('normal')}
+            name="priority"
+            value="normal"
+            field="Normal"
+            required
+          >
+            Normal
+          </RadioButton>
+          <RadioButton
+            active={priority.includes('medium')}
+            name="priority"
+            value="medium"
+            field="Medium"
+            required
+          >
+            Medium
+          </RadioButton>
+          <RadioButton
+            active={priority.includes('high')}
+            name="priority"
+            value="high"
+            field="High"
+            required
+          >
+            High
+          </RadioButton>
+        </WrapperRadioButtons>
+        <InputLabel>Description</InputLabel>
+        <InputDescription
+          type="text"
+          rows="10"
+          value={description}
+          onChange={event => setDescription(event.target.value)}
+          required
+        />
+        <SubmitButton>Add Order</SubmitButton>
+      </InputForm>
+    </>
   );
 }
