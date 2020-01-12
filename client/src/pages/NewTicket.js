@@ -34,7 +34,7 @@ export default function NewTicket() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await fetch('http://localhost:8080/tickets', {
+    await fetch('http://localhost:8080/api/ticket', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
