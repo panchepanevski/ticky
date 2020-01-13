@@ -23,6 +23,7 @@ const ButtonWrapper = styled.div`
   grid-area: 1 / 4 / 2 / 5;
   justify-self: center;
   align-self: center;
+  margin-top: 3px;
 `;
 
 export default function FilterBarOrders() {

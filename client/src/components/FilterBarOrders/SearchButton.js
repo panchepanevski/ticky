@@ -15,6 +15,7 @@ const Button = styled.button`
     transition: 0.4s;
     border: 1px solid ${props => props.theme.colors.tertiary};
     transition: 0.2s;
+    box-shadow: 2px 2px 2px #000000;
   }
 `;
 
