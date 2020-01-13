@@ -1,0 +1,59 @@
+{
+  "tickets": [
+    {
+      "name": "Restart Anlage Nr.5 in #Kleberei",
+      "timestamp": 1578848254000,
+      "assigned": "Panche",
+      "location": "west",
+      "status": "inprogress",
+      "priority": "high",
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "id": 1,
+      "progress": "38"
+    },
+    {
+      "name": "Change network cable",
+      "timestamp": 1578848254000,
+      "assigned": "Panche Panevski",
+      "location": "south",
+      "status": "active",
+      "priority": "normal",
+      "details": "To ensure a robust fast LAN connection to easily transmit high data rates between IT system units, so they are ideally suited for Internet cable wiring in your home or office.",
+      "id": 2,
+      "progress": "35"
+    },
+    {
+      "name": "Replace the fuse in part 1 of machine 55 in section 3 ",
+      "timestamp": 1578848254000,
+      "assigned": "Panche",
+      "location": "west",
+      "status": "completed",
+      "priority": "medium",
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+      "id": 3,
+      "progress": "100"
+    }
+  ],
+  "orders": [
+    {
+      "name": "Network cable 1200 MHz",
+      "serial": "017647681760",
+      "manufacturer": "Delacon",
+      "quantity": "3",
+      "orderedby": "Panche Panevski",
+      "priority": "normal",
+      "description": "These LAN cables have twisted-pair copper wire, making generic cabling of customer premises according to ISO/IEC 11801 and/or EN 50173 their ideal field of application.",
+      "id": 1
+    },
+    {
+      "name": "End product verification camera",
+      "serial": "12344444776366 STR",
+      "manufacturer": "Bosch",
+      "quantity": "10",
+      "orderedby": "Panche Panevski",
+      "priority": "medium",
+      "description": "To ensure that errors are prevented as early in the automated system as possible, a verification must occur before a part enters the system. A verification step should occur after a part is marked or labeled with a barcode and before the part reaches the station where the barcode is first to read.",
+      "id": 2
+    }
+  ]
+}
