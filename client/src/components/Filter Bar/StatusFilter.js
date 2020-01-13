@@ -104,25 +104,25 @@ export default function StatusFilter() {
       <WrapperActive>
         <Button>
           <ActiveCircle />
-          <LinkQuery to="/?status=active">Active</LinkQuery>
+          <LinkQuery to="/tickets/?status=active">Active</LinkQuery>
         </Button>
       </WrapperActive>
       <WrapperInProgress>
         <Button>
           <InProgressCircle />
-          <LinkQuery to="/?status=inprogress">In progress</LinkQuery>
+          <LinkQuery to="/tickets/?status=inprogress">In progress</LinkQuery>
         </Button>
       </WrapperInProgress>
       <WrapperCompleted>
         <Button>
           <CompletedCircle />
-          <LinkQuery to="/?status=completed">Completed</LinkQuery>
+          <LinkQuery to="/tickets/?status=completed">Completed</LinkQuery>
         </Button>
       </WrapperCompleted>
       <WrapperAll>
         <Button>
           <AllCircle />
-          <LinkQuery to="/">All</LinkQuery>
+          <LinkQuery to="/tickets/">All</LinkQuery>
         </Button>
       </WrapperAll>
     </Wrapper>

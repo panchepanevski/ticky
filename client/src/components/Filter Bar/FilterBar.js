@@ -68,32 +68,8 @@ const LocationWrapper = styled.div`
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
 `;
 
-const OnClickWrapperPriority = styled.div`
-  display: ${props => (props.priority ? 'block' : 'none')};
-  grid-column: 1 / 6;
-  grid-row: 2 / 3;
-  width: 100%;
-  height: 30px;
-`;
-
-const OnClickWrapperStatus = styled.div`
-  display: ${props => (props.status ? 'block' : 'none')};
-  grid-column: 1 / 6;
-  grid-row: 2 / 3;
-  width: 100%;
-  height: 30px;
-`;
-
-const OnClickWrapperLocation = styled.div`
-  display: ${props => (props.location ? 'block' : 'none')};
-  grid-column: 1 / 6;
-  grid-row: 2 / 3;
-  width: 100%;
-  height: 30px;
-`;
-
-const OnClickWrapperDate = styled.div`
-  display: ${props => (props.date ? 'block' : 'none')};
+const Details = styled.div`
+  display: ${props => (props.show ? 'block' : 'none')};
   grid-column: 1 / 6;
   grid-row: 2 / 3;
   width: 100%;
@@ -101,32 +77,13 @@ const OnClickWrapperDate = styled.div`
 `;
 
 export default function FilterBar() {
-  const [priority, setPriority] = React.useState(false);
-  const [status, setStatus] = React.useState(false);
-  const [location, setLocation] = React.useState(false);
-  const [date, setDate] = React.useState(false);
+  const [activeDetail, setActiveDetail] = React.useState(null);
 
   function handleClick(filter) {
-    if (filter === 'priority') {
-      setPriority(!priority);
-      setStatus(false);
-      setLocation(false);
-      setDate(false);
-    } else if (filter === 'status') {
-      setPriority(false);
-      setStatus(!status);
-      setLocation(false);
-      setDate(false);
-    } else if (filter === 'location') {
-      setPriority(false);
-      setStatus(false);
-      setLocation(!location);
-      setDate(false);
-    } else if (filter === 'date') {
-      setPriority(false);
-      setStatus(false);
-      setLocation(false);
-      setDate(!date);
+    if (filter === activeDetail) {
+      setActiveDetail(null);
+    } else {
+      setActiveDetail(filter);
     }
   }
 
@@ -140,31 +97,32 @@ export default function FilterBar() {
       <PriorityWrapper>
         <Button onClick={() => handleClick('priority')}>PRIORITY</Button>
       </PriorityWrapper>
-      <OnClickWrapperPriority priority={priority}>
+      <Details show={activeDetail === 'priority'}>
         <PriorityFilter />
-      </OnClickWrapperPriority>
+      </Details>
+
       <StatusWrapper>
         <Button onClick={() => handleClick('status')}>STATUS</Button>
       </StatusWrapper>
-      <OnClickWrapperStatus status={status}>
+      <Details show={activeDetail === 'status'}>
         <StatusFilter />
-      </OnClickWrapperStatus>
+      </Details>
       <DateWrapper>
         <Button onClick={() => handleClick('date')}>
           <CalendarIcon />
         </Button>
       </DateWrapper>
-      <OnClickWrapperDate date={date}>
+      <Details show={activeDetail === 'date'}>
         <DateFilter />
-      </OnClickWrapperDate>
+      </Details>
       <LocationWrapper>
         <Button onClick={() => handleClick('location')}>
           <LocationIcon />
         </Button>
       </LocationWrapper>
-      <OnClickWrapperLocation location={location}>
+      <Details show={activeDetail === 'location'}>
         <LocationFilter />
-      </OnClickWrapperLocation>
+      </Details>
     </Wrapper>
   );
 }

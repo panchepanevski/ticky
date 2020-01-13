@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Order from '../components/Order/Order';
-import PageHeader from '../components/Header/PageHeader';
-import Search from '../components/FilterBarOrders/Search';
+import Header from '../components/Header/Header';
+import AddOrderButton from '../components/Header/AddOrderButton';
+import BackMainButton from '../components/Header/BackMainButton';
 
 const Container = styled.div`
   display: flex;
@@ -25,8 +26,10 @@ export default function OrderList() {
 
   return (
     <>
-      <PageHeader />
-      {/* <Search onChange={} /> */}
+      <Header>
+        <AddOrderButton />
+        <BackMainButton />
+      </Header>
       <Container>
         {orders.map(order => (
           <Order key={order.id} {...order} />

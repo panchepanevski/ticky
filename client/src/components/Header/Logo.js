@@ -17,7 +17,7 @@ const HomeLink = styled(Link)`
 
 export default function Logo() {
   return (
-    <HomeLink to="/startpage">
+    <HomeLink to="/">
       <LogoWrapper src={logo}></LogoWrapper>
     </HomeLink>
   );

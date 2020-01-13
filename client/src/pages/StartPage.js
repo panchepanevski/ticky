@@ -80,7 +80,7 @@ export default function StartPage() {
 
   return (
     <PageWrapper>
-      {redirect ? <Redirect to="/" /> : true}
+      {redirect ? <Redirect to="/main" /> : true}
       <LogoWrapper src={logo} />
       <LogoText>TICKY</LogoText>
     </PageWrapper>

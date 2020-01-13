@@ -32,7 +32,7 @@ const Span = styled.span`
 export default function AddOrderButton() {
   return (
     <ButtonWrapper>
-      <ButtonLink to="/addorder">
+      <ButtonLink to="/order/new">
         <Span>&#43;</Span>order
       </ButtonLink>
     </ButtonWrapper>

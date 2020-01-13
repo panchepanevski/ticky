@@ -78,7 +78,9 @@ export default function DateFilter() {
   function handleChange(value) {
     const testDate = new Date(value);
     history.push(
-      `/?timestamp_gte=${testDate.getTime()}&timestamp_lte=${testDate.getTime() + ONE_DAY - 1}`
+      `/tickets/?timestamp_gte=${testDate.getTime()}&timestamp_lte=${testDate.getTime() +
+        ONE_DAY -
+        1}`
     );
   }
 
@@ -88,7 +90,7 @@ export default function DateFilter() {
       <WrapperAllFilter>
         <Button>
           <AllCircle />
-          <LinkQuery to="/">All</LinkQuery>
+          <LinkQuery to="/tickets/">All</LinkQuery>
         </Button>
       </WrapperAllFilter>
     </Wrapper>

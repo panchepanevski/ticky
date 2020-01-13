@@ -6,15 +6,14 @@ import darkTheme from './themes/darkTheme';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Spring } from 'react-spring/renderprops';
 import NewTicket from './pages/NewTicket';
-import AddOrder from './pages/AddOrder';
-import PageHeader from './components/Header/PageHeader';
+import NewOrder from './pages/NewOrder';
 import StartPage from './pages/StartPage';
 import TicketList from './pages/TicketList';
 import OrderList from './pages/OrderList';
-import OrdersHeader from './components/Header/OrdersHeader';
+import MainPage from './pages/MainPage';
 
 const Main = styled.main`
-  overflow: none;
+  max-width: 600px;
 `;
 
 function App() {
@@ -24,51 +23,50 @@ function App() {
       <Router>
         <Main>
           <Switch>
-            <Route path="/startpage">
+            <Route exact path="/">
               <StartPage />
             </Route>
-            <Route exact path="/">
+            <Route path="/main">
               <Spring
                 from={{ opacity: 0, marginBottom: -500 }}
                 to={{ opacity: 1, marginBottom: 0 }}
                 config={{ delay: 250, duration: 250 }}
               >
-                {props => (
-                  <div style={props}>
+                {style => (
+                  <div style={style}>
+                    <MainPage />
+                  </div>
+                )}
+              </Spring>
+            </Route>
+
+            <Route path="/tickets">
+              <Spring
+                from={{ opacity: 0, marginBottom: -500 }}
+                to={{ opacity: 1, marginBottom: 0 }}
+                config={{ delay: 250, duration: 250 }}
+              >
+                {style => (
+                  <div style={style}>
                     <TicketList />
                   </div>
                 )}
               </Spring>
             </Route>
-            <Route path="/newticket">
-              <PageHeader />
+            <Route exact path="/ticket/new">
               <Spring
                 from={{ opacity: 0, marginBottom: -500 }}
                 to={{ opacity: 1, marginBottom: 0 }}
                 config={{ delay: 250, duration: 250 }}
               >
-                {props => (
-                  <div style={props}>
+                {style => (
+                  <div style={style}>
                     <NewTicket />
                   </div>
                 )}
               </Spring>
             </Route>
-            <Route path="/addorder">
-              <OrdersHeader />
-              <Spring
-                from={{ opacity: 0, marginBottom: -500 }}
-                to={{ opacity: 1, marginBottom: 0 }}
-                config={{ delay: 250, duration: 250 }}
-              >
-                {props => (
-                  <div style={props}>
-                    <AddOrder />
-                  </div>
-                )}
-              </Spring>
-            </Route>
-            <Route path="/orderlist">
+            <Route path="/orders">
               <Spring
                 from={{ opacity: 0, marginBottom: -500 }}
                 to={{ opacity: 1, marginBottom: 0 }}
@@ -77,6 +75,19 @@ function App() {
                 {props => (
                   <div style={props}>
                     <OrderList />
+                  </div>
+                )}
+              </Spring>
+            </Route>
+            <Route path="/order/new">
+              <Spring
+                from={{ opacity: 0, marginBottom: -500 }}
+                to={{ opacity: 1, marginBottom: 0 }}
+                config={{ delay: 250, duration: 250 }}
+              >
+                {props => (
+                  <div style={props}>
+                    <NewOrder />
                   </div>
                 )}
               </Spring>

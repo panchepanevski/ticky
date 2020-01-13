@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const ButtonWrapper = styled.div`
-  grid-column: 4 / 5;
+  grid-column: 5 / 6;
 `;
 
 const ButtonLink = styled(Link)`
+  display: flex;
+  align-content: center;
+  align-items: center;
   text-transform: uppercase;
   text-decoration: none;
   font-size: 18px;
@@ -29,11 +33,11 @@ const Span = styled.span`
   }
 `;
 
-export default function AddTicketButton() {
+export default function BackTicketsButton() {
   return (
     <ButtonWrapper>
-      <ButtonLink to="/ticket/new">
-        <Span>&#43;</Span>ticket
+      <ButtonLink to="/main">
+        <Span>&larr;</Span>back
       </ButtonLink>
     </ButtonWrapper>
   );

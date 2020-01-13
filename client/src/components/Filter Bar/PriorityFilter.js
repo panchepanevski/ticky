@@ -104,25 +104,25 @@ export default function PriorityFilter() {
       <WrapperNormal>
         <Button>
           <NormalCircle />
-          <LinkQuery to="/?priority=normal">Normal</LinkQuery>
+          <LinkQuery to="/tickets/?priority=normal">Normal</LinkQuery>
         </Button>
       </WrapperNormal>
       <WrapperMedium>
         <Button>
           <MediumCircle />
-          <LinkQuery to="/?priority=medium">Medium</LinkQuery>
+          <LinkQuery to="/tickets/?priority=medium">Medium</LinkQuery>
         </Button>
       </WrapperMedium>
       <WrapperHigh>
         <Button>
           <HighCircle />
-          <LinkQuery to="/?priority=high">High</LinkQuery>
+          <LinkQuery to="/tickets/?priority=high">High</LinkQuery>
         </Button>
       </WrapperHigh>
       <WrapperAll>
         <Button>
           <AllCircle />
-          <LinkQuery to="/">All</LinkQuery>
+          <LinkQuery to="/tickets/">All</LinkQuery>
         </Button>
       </WrapperAll>
     </Wrapper>

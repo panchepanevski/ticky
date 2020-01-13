@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 import { Title } from '../Ticket/Title';
 import deleteIcon from '../../assets/icons/deleteIcon.svg';
 import Priority from './Priority';
@@ -45,28 +46,23 @@ const DescriptionWrapper = styled.div`
   margin: 15px 0;
 `;
 
-const ManufacturerWrapper = styled.div`
+const IconWrapper = styled.div`
+  grid-row: 4 / 5;
+  justify-self: center;
+  align-self: center;
+  cursor: pointer;
+`;
+
+const ManufacturerWrapper = styled(IconWrapper)`
   grid-column: 5 / 7;
-  grid-row: 4 / 5;
-  justify-self: center;
-  align-self: center;
-  cursor: pointer;
 `;
 
-const SerialWrapper = styled.div`
+const SerialWrapper = styled(IconWrapper)`
   grid-column: 7 / 9;
-  grid-row: 4 / 5;
-  justify-self: center;
-  align-self: center;
-  cursor: pointer;
 `;
 
-const QuantityWrapper = styled.div`
+const QuantityWrapper = styled(IconWrapper)`
   grid-column: 9 / 11;
-  grid-row: 4 / 5;
-  justify-self: center;
-  align-self: center;
-  cursor: pointer;
 `;
 
 const BorderLine = styled.div`
@@ -93,29 +89,8 @@ const IconsWrapper = styled.img`
   justify-self: center;
 `;
 
-const FullDescription = styled.div`
-  display: ${props => (props.detailsClick ? 'block' : 'none')};
-  grid-column: 1 / 11;
-  grid-row: 5 / 6;
-  margin: 10px 0;
-`;
-
-const FullSerial = styled.div`
-  display: ${props => (props.serialClick ? 'block' : 'none')};
-  grid-column: 1 / 11;
-  grid-row: 5 / 6;
-  margin: 10px 0;
-`;
-
-const FullManufacturer = styled.div`
-  display: ${props => (props.manufacturerClick ? 'block' : 'none')};
-  grid-column: 1 / 11;
-  grid-row: 5 / 6;
-  margin: 10px 0;
-`;
-
-const FullQuantity = styled.div`
-  display: ${props => (props.quantityClick ? 'block' : 'none')};
+const Details = styled.div`
+  display: ${props => (props.show ? 'block' : 'none')};
   grid-column: 1 / 11;
   grid-row: 5 / 6;
   margin: 10px 0;
@@ -131,32 +106,13 @@ export default function Order({
   priority,
   description
 }) {
-  const [detailsClick, setDetailsClick] = React.useState(false);
-  const [serialClick, setSerialClick] = React.useState(false);
-  const [manufacturerClick, setManufacturerClick] = React.useState(false);
-  const [quantityClick, setQuantityClick] = React.useState(false);
+  const [activeDetail, setActiveDetail] = React.useState(null);
 
   function handleClick(filter) {
-    if (filter === 'descriptionClick') {
-      setDetailsClick(!detailsClick);
-      setSerialClick(false);
-      setManufacturerClick(false);
-      setQuantityClick(false);
-    } else if (filter === 'serialClick') {
-      setDetailsClick(false);
-      setSerialClick(!serialClick);
-      setManufacturerClick(false);
-      setQuantityClick(false);
-    } else if (filter === 'manufacturerClick') {
-      setDetailsClick(false);
-      setSerialClick(false);
-      setManufacturerClick(!manufacturerClick);
-      setQuantityClick(false);
-    } else if (filter === 'quantityClick') {
-      setDetailsClick(false);
-      setSerialClick(false);
-      setManufacturerClick(false);
-      setQuantityClick(!quantityClick);
+    if (filter === activeDetail) {
+      setActiveDetail(null);
+    } else {
+      setActiveDetail(filter);
     }
   }
 
@@ -176,28 +132,37 @@ export default function Order({
         <Priority orderId={id} value={priority} />
       </PriorityWrapper>
 
-      <DescriptionWrapper onClick={() => handleClick('descriptionClick')}>
+      <DescriptionWrapper onClick={() => handleClick('description')}>
         Description &#x025BE;
       </DescriptionWrapper>
-      <FullDescription detailsClick={detailsClick}>{description}</FullDescription>
+      <Details show={activeDetail === 'description'}>{description}</Details>
 
-      <SerialWrapper onClick={() => handleClick('serialClick')}>
+      <SerialWrapper onClick={() => handleClick('serial')}>
         <IconsWrapper src={serialIcon}></IconsWrapper>
       </SerialWrapper>
-      <FullSerial serialClick={serialClick}>Serial Number: {serial}</FullSerial>
+      <Details show={activeDetail === 'serial'}>Serial Number: {serial}</Details>
 
-      <ManufacturerWrapper onClick={() => handleClick('manufacturerClick')}>
+      <ManufacturerWrapper onClick={() => handleClick('manufacturer')}>
         <IconsWrapper src={manufacturerIcon}></IconsWrapper>
       </ManufacturerWrapper>
-      <FullManufacturer manufacturerClick={manufacturerClick}>
-        Manufacturer: {manufacturer}
-      </FullManufacturer>
+      <Details show={activeDetail === 'manufacturer'}>Manufacturer: {manufacturer}</Details>
 
-      <QuantityWrapper onClick={() => handleClick('quantityClick')}>
+      <QuantityWrapper onClick={() => handleClick('quantity')}>
         <IconsWrapper src={quantityIcon}></IconsWrapper>
       </QuantityWrapper>
-      <FullQuantity quantityClick={quantityClick}>Quanitiy: {quantity}</FullQuantity>
+      <Details show={activeDetail === 'quantity'}>Quanitiy: {quantity}</Details>
       <BorderLine />
     </Container>
   );
 }
+
+Order.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  serial: PropTypes.string,
+  manufacturer: PropTypes.string,
+  quantity: PropTypes.string,
+  orderedby: PropTypes.string,
+  priority: PropTypes.string,
+  description: PropTypes.string
+};

@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 import Logo from '../Header/Logo';
-import AddOrderButton from '../Header/AddOrderButton';
-import AddTicketButton from '../Header/AddTicketButton';
 
 const HeaderWrapper = styled.div`
   display: grid;
@@ -17,12 +16,15 @@ const HeaderWrapper = styled.div`
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 `;
 
-export default function Header() {
+export default function Header({ children }) {
   return (
     <HeaderWrapper>
       <Logo />
-      <AddOrderButton />
-      <AddTicketButton />
+      {children}
     </HeaderWrapper>
   );
 }
+
+Header.propTypes = {
+  children: PropTypes.node
+};
