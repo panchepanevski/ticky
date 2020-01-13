@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Order from '../components/Order/Order';
 import PageHeader from '../components/Header/PageHeader';
-import Search from '../components/FilterBarOrders/Search';
+import FilterBarOrders from '../components/FilterBarOrders/FilterBarOrders';
 
 const Container = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ export default function OrderList() {
   return (
     <>
       <PageHeader />
-      {/* <Search onChange={} /> */}
+      <FilterBarOrders />
       <Container>
         {orders.map(order => (
           <Order key={order.id} {...order} />

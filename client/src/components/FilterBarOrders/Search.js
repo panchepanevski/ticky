@@ -1,18 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const Wrapper = styled.div`
-  width: 100%;
-  height: auto;
-  display: grid;
-  grid-template-columns: 2% 96% 2%;
-  grid-template-rows: auto;
-`;
-
 const Form = styled.form`
   grid-area: 1 / 2 / 1 / 3;
   align-self: center;
-  margin-top: 15px;
 `;
 
 const Input = styled.input`
@@ -57,18 +48,16 @@ export default function Search({ value, onChange }) {
   }, [searchOrders]);
 
   return (
-    <Wrapper>
-      <Form onSubmit={handleSubmit}>
-        <Input
-          autoFocus
-          placeholder="Search orders by typing here"
-          value={searchOrders}
-          onChange={event => {
-            const newSearchValue = upperCaseFirstChar(event.target.value);
-            setSearchOrders(newSearchValue);
-          }}
-        />
-      </Form>
-    </Wrapper>
+    <Form onSubmit={handleSubmit}>
+      <Input
+        autoFocus
+        placeholder="Search orders by typing here"
+        value={searchOrders}
+        onChange={event => {
+          const newSearchValue = upperCaseFirstChar(event.target.value);
+          setSearchOrders(newSearchValue);
+        }}
+      />
+    </Form>
   );
 }
