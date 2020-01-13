@@ -50,6 +50,6 @@ export default function Priority({ orderId, value }) {
 }
 
 Priority.propTypes = {
-  ticketId: PropTypes.string,
+  orderId: PropTypes.string,
   value: PropTypes.string
 };

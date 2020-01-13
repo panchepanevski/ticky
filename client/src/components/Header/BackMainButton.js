@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
 
 const ButtonWrapper = styled.div`
   grid-column: 5 / 6;
