@@ -23,7 +23,7 @@ export default function TicketList() {
   //FILTER
 
   async function fetchTickets() {
-    const response = await fetch(`http://localhost:8080/tickets${filter}`);
+    const response = await fetch(`/api/tickets${filter}`);
     const newTickets = await response.json();
     setTickets(newTickets);
   }

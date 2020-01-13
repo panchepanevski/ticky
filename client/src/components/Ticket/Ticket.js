@@ -27,8 +27,7 @@ const Container = styled.div`
 `;
 
 const TitleWrapper = styled.div`
-  grid-column: 1 / 10;
-  grid-row: 1 / 2;
+  grid-area: 1 / 1 / 2 / 10;
   margin: 5px 0;
 `;
 

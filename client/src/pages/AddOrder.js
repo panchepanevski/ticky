@@ -6,7 +6,6 @@ import { InputDescription } from '../components/InputFields/InputDescription';
 import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { TextStyledH1 } from '../components/TextStyledH1';
 import RadioButton from '../components/InputFields/RadioButton';
-import OrdersHeader from '../components/Header/OrdersHeader';
 
 const InputForm = styled.form`
   display: flex;
@@ -31,7 +30,7 @@ export default function AddOrder() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await fetch('http://localhost:8080/orders', {
+    await fetch('/api/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -58,7 +57,6 @@ export default function AddOrder() {
 
   return (
     <>
-      <OrdersHeader />
       <InputForm onSubmit={handleSubmit}>
         <TextStyledH1>Add Order</TextStyledH1>
         <InputLabel>Name of the required part</InputLabel>

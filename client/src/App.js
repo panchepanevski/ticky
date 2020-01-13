@@ -11,6 +11,7 @@ import PageHeader from './components/Header/PageHeader';
 import StartPage from './pages/StartPage';
 import TicketList from './pages/TicketList';
 import OrderList from './pages/OrderList';
+import OrdersHeader from './components/Header/OrdersHeader';
 
 const Main = styled.main`
   overflow: none;
@@ -54,6 +55,7 @@ function App() {
               </Spring>
             </Route>
             <Route path="/addorder">
+              <OrdersHeader />
               <Spring
                 from={{ opacity: 0, marginBottom: -500 }}
                 to={{ opacity: 1, marginBottom: 0 }}

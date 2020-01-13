@@ -21,7 +21,7 @@ export default function Priority({ orderId, value }) {
 
   async function handlePriority(value) {
     setPriorityValue(value);
-    await fetch(`http://localhost:8080/orders/${orderId}`, {
+    await fetch(`/api/orders/${orderId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
