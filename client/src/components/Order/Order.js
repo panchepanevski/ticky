@@ -190,7 +190,7 @@ export default function Order({
         <IconsWrapper src={manufacturerIcon}></IconsWrapper>
       </ManufacturerWrapper>
       <FullManufacturer manufacturerClick={manufacturerClick}>
-        Manufacturer:{manufacturer}
+        Manufacturer: {manufacturer}
       </FullManufacturer>
 
       <QuantityWrapper onClick={() => handleClick('quantityClick')}>

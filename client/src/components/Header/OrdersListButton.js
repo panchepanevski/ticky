@@ -24,7 +24,7 @@ const ButtonLink = styled(Link)`
 `;
 
 const Span = styled.span`
-  font-size: 26px;
+  font-size: 20px;
   margin-right: 5px;
   color: ${props => props.theme.colors.tertiary};
   &:hover {
@@ -36,7 +36,7 @@ export default function OrdersListButton() {
   return (
     <ButtonWrapper>
       <ButtonLink to="/orderlist">
-        <Span>&#x02255;</Span>Orders
+        <Span>&#x2636;</Span>Orders
       </ButtonLink>
     </ButtonWrapper>
   );
