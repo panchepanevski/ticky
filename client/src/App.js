@@ -14,6 +14,7 @@ import MainPage from './pages/MainPage';
 
 const Main = styled.main`
   max-width: 600px;
+  margin: 0 auto;
 `;
 
 function App() {
