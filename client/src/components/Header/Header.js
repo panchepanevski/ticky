@@ -14,6 +14,18 @@ const HeaderWrapper = styled.div`
   margin-bottom: 1px;
   background-color: ${props => props.theme.colors.elements_bg};
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1.5s;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .fadeIn {
+    animation-name: fadeIn;
+  }
 `;
 
 export default function Header({ children }) {

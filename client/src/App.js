@@ -4,7 +4,6 @@ import GlobalStyles from './GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
 import darkTheme from './themes/darkTheme';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Spring } from 'react-spring/renderprops';
 import NewTicket from './pages/NewTicket';
 import NewOrder from './pages/NewOrder';
 import StartPage from './pages/StartPage';
@@ -28,70 +27,20 @@ function App() {
               <StartPage />
             </Route>
             <Route path="/main">
-              <Spring
-                from={{ opacity: 0, marginBottom: -500 }}
-                to={{ opacity: 1, marginBottom: 0 }}
-                config={{ delay: 250, duration: 250 }}
-              >
-                {style => (
-                  <div style={style}>
-                    <MainPage />
-                  </div>
-                )}
-              </Spring>
+              <MainPage />
             </Route>
 
             <Route path="/tickets">
-              <Spring
-                from={{ opacity: 0, marginBottom: -500 }}
-                to={{ opacity: 1, marginBottom: 0 }}
-                config={{ delay: 250, duration: 250 }}
-              >
-                {style => (
-                  <div style={style}>
-                    <TicketList />
-                  </div>
-                )}
-              </Spring>
+              <TicketList />
             </Route>
             <Route exact path="/ticket/new">
-              <Spring
-                from={{ opacity: 0, marginBottom: -500 }}
-                to={{ opacity: 1, marginBottom: 0 }}
-                config={{ delay: 250, duration: 250 }}
-              >
-                {style => (
-                  <div style={style}>
-                    <NewTicket />
-                  </div>
-                )}
-              </Spring>
+              <NewTicket />
             </Route>
             <Route path="/orders">
-              <Spring
-                from={{ opacity: 0, marginBottom: -500 }}
-                to={{ opacity: 1, marginBottom: 0 }}
-                config={{ delay: 250, duration: 250 }}
-              >
-                {props => (
-                  <div style={props}>
-                    <OrderList />
-                  </div>
-                )}
-              </Spring>
+              <OrderList />
             </Route>
             <Route path="/order/new">
-              <Spring
-                from={{ opacity: 0, marginBottom: -500 }}
-                to={{ opacity: 1, marginBottom: 0 }}
-                config={{ delay: 250, duration: 250 }}
-              >
-                {props => (
-                  <div style={props}>
-                    <NewOrder />
-                  </div>
-                )}
-              </Spring>
+              <NewOrder />
             </Route>
           </Switch>
         </Main>

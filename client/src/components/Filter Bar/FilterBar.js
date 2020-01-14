@@ -20,6 +20,18 @@ const Wrapper = styled.div`
   margin-bottom: 25px;
   border-top: 1px solid ${props => props.theme.colors.background};
   background-color: ${props => props.theme.colors.elements_bg};
+  animation: fadeIn 1.5s;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .fadeIn {
+    animation-name: fadeIn;
+  }
 `;
 
 const IconWrapper = styled.div`

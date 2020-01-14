@@ -11,6 +11,20 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeInUp 1s;
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .fadeInUp {
+    animation-name: fadeInUp;
+  }
 `;
 
 export default function TicketList() {
