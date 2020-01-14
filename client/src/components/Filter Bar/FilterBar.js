@@ -97,7 +97,6 @@ const Details = styled.div`
 
 export default function FilterBar() {
   const [activeDetail, setActiveDetail] = React.useState(null);
-  const [activeBg, setActiveBg] = React.useState(null);
 
   function handleClick(filter) {
     if (filter === activeDetail) {
