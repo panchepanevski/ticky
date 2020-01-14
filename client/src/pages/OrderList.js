@@ -29,7 +29,7 @@ export default function OrderList() {
   const [orders, setOrders] = React.useState([]);
 
   async function fetchOrders() {
-    const response = await fetch('/api/orders');
+    const response = await fetch(`/api/orders`);
     const newOrders = await response.json();
     setOrders(newOrders);
   }

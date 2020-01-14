@@ -5,11 +5,11 @@ import { Title } from './Title';
 import Status from './Status';
 import Priority from './Priority';
 import { IconsWrapper } from './IconsWrapper';
-import userIcon from '../../assets/icons/userIcon.svg';
-import locationIcon from '../../assets/icons/locationIcon.svg';
-import timedateIcon from '../../assets/icons/timedateIcon.svg';
 import editIcon from '../../assets/icons/editIcon.svg';
 import Progress from './Progress';
+import LocationIcon from '../../assets/icons/LocationIcon';
+import UserIcon from '../../assets/icons/UserIcon';
+import TimeDateIcon from '../../assets/icons/TimeDateIcon';
 
 const Container = styled.div`
   display: grid;
@@ -166,21 +166,27 @@ export default function Ticket({
       <ExtraDescription show={activeDetail === 'description'}>{details}</ExtraDescription>
 
       <AssignedWrapper onClick={() => handleClick('assignedUser')}>
-        <IconsWrapper src={userIcon}></IconsWrapper>
+        <IconsWrapper>
+          <UserIcon />
+        </IconsWrapper>
       </AssignedWrapper>
       <ExtraDescription show={activeDetail === 'assignedUser'}>
         Assigned by: {assigned}
       </ExtraDescription>
 
       <LocationWrapper onClick={() => handleClick('ticketLocation')}>
-        <IconsWrapper src={locationIcon}></IconsWrapper>
+        <IconsWrapper>
+          <LocationIcon />
+        </IconsWrapper>
       </LocationWrapper>
       <ExtraDescription show={activeDetail === 'ticketLocation'}>
         Location: {location}
       </ExtraDescription>
 
       <TimeDateWrapper onClick={() => handleClick('ticketTimedate')}>
-        <IconsWrapper src={timedateIcon}></IconsWrapper>
+        <IconsWrapper>
+          <TimeDateIcon />
+        </IconsWrapper>
       </TimeDateWrapper>
       <ExtraDescription show={activeDetail === 'ticketTimedate'}>
         Date and Time: {date.toLocaleString()}

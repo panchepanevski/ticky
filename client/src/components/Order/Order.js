@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { Title } from '../Ticket/Title';
 import deleteIcon from '../../assets/icons/deleteIcon.svg';
 import Priority from './Priority';
-import serialIcon from '../../assets/icons/serialIcon.svg';
-import manufacturerIcon from '../../assets/icons/manufacturerIcon.svg';
-import quantityIcon from '../../assets/icons/quantityIcon.svg';
+import ManufacturerIcon from '../../assets/icons/ManufacturerIcon';
+import QuantityIcon from '../../assets/icons/QuantityIcon';
+import SerialIcon from '../../assets/icons/SerialIcon';
 
 const Container = styled.div`
   display: grid;
@@ -44,6 +44,9 @@ const DescriptionWrapper = styled.div`
   grid-row: 4 / 5;
   cursor: pointer;
   margin: 15px 0;
+  &:hover {
+    color: ${props => props.theme.colors.tertiary};
+  }
 `;
 
 const IconWrapper = styled.div`
@@ -82,7 +85,7 @@ const DeleteIcon = styled.img`
   margin: 20px 0;
 `;
 
-const IconsWrapper = styled.img`
+const IconsWrapper = styled.div`
   width: 24px;
   height: 24px;
   align-self: center;
@@ -150,17 +153,23 @@ export default function Order({
       <Details show={activeDetail === 'description'}>{description}</Details>
 
       <SerialWrapper onClick={() => handleClick('serial')}>
-        <IconsWrapper src={serialIcon}></IconsWrapper>
+        <IconsWrapper>
+          <SerialIcon />
+        </IconsWrapper>
       </SerialWrapper>
       <Details show={activeDetail === 'serial'}>Serial Number: {serial}</Details>
 
       <ManufacturerWrapper onClick={() => handleClick('manufacturer')}>
-        <IconsWrapper src={manufacturerIcon}></IconsWrapper>
+        <IconsWrapper>
+          <ManufacturerIcon />
+        </IconsWrapper>
       </ManufacturerWrapper>
       <Details show={activeDetail === 'manufacturer'}>Manufacturer: {manufacturer}</Details>
 
       <QuantityWrapper onClick={() => handleClick('quantity')}>
-        <IconsWrapper src={quantityIcon}></IconsWrapper>
+        <IconsWrapper>
+          <QuantityIcon />
+        </IconsWrapper>
       </QuantityWrapper>
       <Details show={activeDetail === 'quantity'}>Quanitiy: {quantity}</Details>
       <BorderLine />
