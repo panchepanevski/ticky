@@ -1,5 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
+
+const backgroundColors = {
+  normal: '#21AAFF',
+  medium: '#FF9B00',
+  high: '#FF434C'
+};
 
 const PriorityBox = styled.select`
   width: 60px;
@@ -8,12 +15,8 @@ const PriorityBox = styled.select`
   border: none;
   cursor: pointer;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.15);
-  background-color: ${props => (props.value === 'normal' ? '#21AAFF' : 'none')};
-  background-color: ${props => (props.value === 'medium' ? '#FF9B00' : 'none')};
-  background-color: ${props => (props.value === 'high' ? '#FF434C' : 'none')};
-  color: ${props => (props.value === 'normal' ? '#21AAFF' : 'none')};
-  color: ${props => (props.value === 'medium' ? '#FF9B00' : 'none')};
-  color: ${props => (props.value === 'high' ? '#FF434C' : 'none')};
+  color: transparent;
+  background-color: ${props => backgroundColors[props.value]};
 `;
 
 export default function Priority({ orderId, value }) {
@@ -45,3 +48,8 @@ export default function Priority({ orderId, value }) {
     </PriorityBox>
   );
 }
+
+Priority.propTypes = {
+  orderId: PropTypes.string,
+  value: PropTypes.string
+};

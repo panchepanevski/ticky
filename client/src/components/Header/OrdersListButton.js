@@ -35,7 +35,7 @@ const Span = styled.span`
 export default function OrdersListButton() {
   return (
     <ButtonWrapper>
-      <ButtonLink to="/orderlist">
+      <ButtonLink to="/orders">
         <Span>&#x2636;</Span>Orders
       </ButtonLink>
     </ButtonWrapper>

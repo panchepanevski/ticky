@@ -93,28 +93,7 @@ const Edit = styled.img`
 `;
 
 const ExtraDescription = styled.div`
-  display: ${props => (props.description ? 'block' : 'none')};
-  grid-column: 1 / 11;
-  grid-row: 5 / 6;
-  margin: 10px 0;
-`;
-
-const ExtraAssigned = styled.div`
-  display: ${props => (props.assignedUser ? 'block' : 'none')};
-  grid-column: 1 / 11;
-  grid-row: 5 / 6;
-  margin: 10px 0;
-`;
-
-const TicketLocation = styled.div`
-  display: ${props => (props.ticketLocation ? 'block' : 'none')};
-  grid-column: 1 / 11;
-  grid-row: 5 / 6;
-  margin: 10px 0;
-`;
-
-const TicketTimeDate = styled.div`
-  display: ${props => (props.ticketTimedate ? 'block' : 'none')};
+  display: ${props => (props.show ? 'block' : 'none')};
   grid-column: 1 / 11;
   grid-row: 5 / 6;
   margin: 10px 0;
@@ -131,34 +110,15 @@ export default function Ticket({
   timestamp,
   progress
 }) {
-  const [description, setDescription] = React.useState(false);
-  const [assignedUser, setAssignedUser] = React.useState(false);
-  const [ticketLocation, setTicketLocation] = React.useState(false);
-  const [ticketTimedate, setTicketTimedate] = React.useState(false);
   const [progressValue, setProgressValue] = React.useState(progress);
   const date = new Date(timestamp);
+  const [activeDetail, setActiveDetail] = React.useState(null);
 
   function handleClick(filter) {
-    if (filter === 'description') {
-      setDescription(!description);
-      setAssignedUser(false);
-      setTicketLocation(false);
-      setTicketTimedate(false);
-    } else if (filter === 'assignedUser') {
-      setDescription(false);
-      setAssignedUser(!assignedUser);
-      setTicketLocation(false);
-      setTicketTimedate(false);
-    } else if (filter === 'ticketLocation') {
-      setDescription(false);
-      setAssignedUser(false);
-      setTicketLocation(!ticketLocation);
-      setTicketTimedate(false);
-    } else if (filter === 'ticketTimedate') {
-      setDescription(false);
-      setAssignedUser(false);
-      setTicketLocation(false);
-      setTicketTimedate(!ticketTimedate);
+    if (filter === activeDetail) {
+      setActiveDetail(null);
+    } else {
+      setActiveDetail(filter);
     }
   }
 
@@ -191,24 +151,28 @@ export default function Ticket({
       <DescriptionWrapper onClick={() => handleClick('description')}>
         Description &#x025BE;
       </DescriptionWrapper>
-      <ExtraDescription description={description}>{details}</ExtraDescription>
+      <ExtraDescription show={activeDetail === 'description'}>{details}</ExtraDescription>
 
       <AssignedWrapper onClick={() => handleClick('assignedUser')}>
         <IconsWrapper src={userIcon}></IconsWrapper>
       </AssignedWrapper>
-      <ExtraAssigned assignedUser={assignedUser}>Assigned by: {assigned}</ExtraAssigned>
+      <ExtraDescription show={activeDetail === 'assignedUser'}>
+        Assigned by: {assigned}
+      </ExtraDescription>
 
       <LocationWrapper onClick={() => handleClick('ticketLocation')}>
         <IconsWrapper src={locationIcon}></IconsWrapper>
       </LocationWrapper>
-      <TicketLocation ticketLocation={ticketLocation}>Location: {location}</TicketLocation>
+      <ExtraDescription show={activeDetail === 'ticketLocation'}>
+        Location: {location}
+      </ExtraDescription>
 
       <TimeDateWrapper onClick={() => handleClick('ticketTimedate')}>
         <IconsWrapper src={timedateIcon}></IconsWrapper>
       </TimeDateWrapper>
-      <TicketTimeDate ticketTimedate={ticketTimedate}>
+      <ExtraDescription show={activeDetail === 'ticketTimedate'}>
         Date and Time: {date.toLocaleString()}
-      </TicketTimeDate>
+      </ExtraDescription>
       <BorderLine />
     </Container>
   );
@@ -219,5 +183,9 @@ Ticket.propTypes = {
   status: PropTypes.string,
   priority: PropTypes.string,
   assigned: PropTypes.string,
-  location: PropTypes.string
+  location: PropTypes.string,
+  id: PropTypes.string,
+  details: PropTypes.string,
+  progress: PropTypes.string,
+  timestamp: PropTypes.number
 };

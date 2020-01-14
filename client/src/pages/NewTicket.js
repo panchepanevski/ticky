@@ -7,6 +7,8 @@ import { InputDescription } from '../components/InputFields/InputDescription';
 import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { TextStyledH1 } from '../components/TextStyledH1';
 import RadioButton from '../components/InputFields/RadioButton';
+import Header from '../components/Header/Header';
+import BackTicketsButton from '../components/Header/BackTicketsButton';
 
 const InputForm = styled.form`
   display: flex;
@@ -60,109 +62,118 @@ export default function NewTicket() {
   }
 
   return (
-    <InputForm onSubmit={handleSubmit}>
-      <TextStyledH1>Add Ticket</TextStyledH1>
-      <InputLabel>Ticket name</InputLabel>
-      <InputField
-        type="text"
-        value={name}
-        onChange={event => setName(event.target.value)}
-        autoFocus
-        required
-      />
-      <InputLabel>Date and Time</InputLabel>
-      <InputField
-        type="datetime-local"
-        defaultValue={isoDateString}
-        onChange={event => setDate(new Date(event.target.value))}
-        required
-      />
-      <InputLabel>Assigned by</InputLabel>
-      <InputField
-        type="text"
-        value={assigned}
-        onChange={event => setAssigned(event.target.value)}
-        required
-      />
-      <InputLabel>Location</InputLabel>
-      <InputSelectBox value={location} onChange={event => setLocation(event.target.value)} required>
-        <option value="select">Select Location</option>
-        <option value="east-building">East Building</option>
-        <option value="west-building">West Building</option>
-        <option value="south-building">South Building</option>
-        <option value="north-building">North Building</option>
-      </InputSelectBox>
+    <>
+      <Header>
+        <BackTicketsButton />
+      </Header>
+      <InputForm onSubmit={handleSubmit}>
+        <TextStyledH1>Add Ticket</TextStyledH1>
+        <InputLabel>Ticket name</InputLabel>
+        <InputField
+          type="text"
+          value={name}
+          onChange={event => setName(event.target.value)}
+          autoFocus
+          required
+        />
+        <InputLabel>Date and Time</InputLabel>
+        <InputField
+          type="datetime-local"
+          defaultValue={isoDateString}
+          onChange={event => setDate(new Date(event.target.value))}
+          required
+        />
+        <InputLabel>Assigned by</InputLabel>
+        <InputField
+          type="text"
+          value={assigned}
+          onChange={event => setAssigned(event.target.value)}
+          required
+        />
+        <InputLabel>Location</InputLabel>
+        <InputSelectBox
+          value={location}
+          onChange={event => setLocation(event.target.value)}
+          required
+        >
+          <option value="select">Select Location</option>
+          <option value="east-building">East Building</option>
+          <option value="west-building">West Building</option>
+          <option value="south-building">South Building</option>
+          <option value="north-building">North Building</option>
+        </InputSelectBox>
 
-      <InputLabel>Status</InputLabel>
-      <WrapperRadioButtons onChange={event => setStatus(event.target.value)}>
-        <RadioButton
-          active={status.includes('active')}
-          name="status"
-          value="active"
-          field="Active"
-          required
-        >
-          Active
-        </RadioButton>
-        <RadioButton
-          active={status.includes('inprogress')}
-          name="status"
-          value="inprogress"
-          field="In Progress"
-          required
-        >
-          In Progress
-        </RadioButton>
-        <RadioButton
-          active={status.includes('completed')}
-          name="status"
-          value="completed"
-          field="Completed"
-          required
-        >
-          Completed
-        </RadioButton>
-      </WrapperRadioButtons>
+        <InputLabel>Status</InputLabel>
+        <WrapperRadioButtons onChange={event => setStatus(event.target.value)}>
+          <RadioButton
+            active={status.includes('active')}
+            name="status"
+            value="active"
+            field="Active"
+            required
+          >
+            Active
+          </RadioButton>
+          <RadioButton
+            active={status.includes('inprogress')}
+            name="status"
+            value="inprogress"
+            field="In Progress"
+            required
+          >
+            In Progress
+          </RadioButton>
+          <RadioButton
+            active={status.includes('completed')}
+            name="status"
+            value="completed"
+            field="Completed"
+            required
+          >
+            Completed
+          </RadioButton>
+        </WrapperRadioButtons>
 
-      <InputLabel>Priority</InputLabel>
-      <WrapperRadioButtons onChange={event => setPriority(event.target.value)}>
-        <RadioButton
-          active={priority.includes('normal')}
-          name="priority"
-          value="normal"
-          field="Normal"
+        <InputLabel>Priority</InputLabel>
+        <WrapperRadioButtons onChange={event => setPriority(event.target.value)}>
+          <RadioButton
+            active={priority.includes('normal')}
+            name="priority"
+            value="normal"
+            field="Normal"
+            required
+          >
+            Normal
+          </RadioButton>
+          <RadioButton
+            active={priority.includes('medium')}
+            name="priority"
+            value="medium"
+            field="Medium"
+            required
+          >
+            Medium
+          </RadioButton>
+          <RadioButton
+            active={priority.includes('high')}
+            name="priority"
+            value="high"
+            field="High"
+            required
+          >
+            High
+          </RadioButton>
+        </WrapperRadioButtons>
+        <InputLabel>Description</InputLabel>
+        <InputDescription
+          type="text"
+          rows="10"
+          value={details}
+          onChange={event => setDetails(event.target.value)}
           required
-        >
-          Normal
-        </RadioButton>
-        <RadioButton
-          active={priority.includes('medium')}
-          name="priority"
-          value="medium"
-          field="Medium"
-          required
-        >
-          Medium
-        </RadioButton>
-        <RadioButton
-          active={priority.includes('high')}
-          name="priority"
-          value="high"
-          field="High"
-          required
-        >
-          High
-        </RadioButton>
-      </WrapperRadioButtons>
-      <InputLabel>Description</InputLabel>
-      <InputDescription
-        type="text"
-        rows="10"
-        value={details}
-        onChange={event => setDetails(event.target.value)}
-        required
-      />
-      <SubmitButton>Add Ticket</SubmitButton>
-    </InputForm>
+        />
+        <SubmitButton>Add Ticket</SubmitButton>
+      </InputForm>
+    </>
   );
 }

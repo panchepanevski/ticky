@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 const Slider = styled.input`
   -webkit-appearance: none;
@@ -39,19 +40,37 @@ const Slider = styled.input`
 
 export default function Progress({ value, ticketId, id }) {
   const [progress, setProgress] = React.useState(value);
+  const [firstRender, setFirstRender] = React.useState(true);
 
-  async function handleProgress(value) {
+  function handleProgress(value) {
     setProgress(value);
-    await fetch(`http://localhost:8080/tickets/${ticketId}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        progress: value
-      })
-    });
   }
+
+  React.useEffect(() => {
+    if (firstRender) {
+      setFirstRender(false);
+      return;
+    }
+    console.log('Add new Timeout');
+    const timeoutId = setTimeout(() => {
+      console.log('Execute Timeout');
+      fetch(`/api/tickets/${ticketId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          progress
+        })
+      });
+    }, 200);
+
+    return () => {
+      console.log('Clear previous Timeout');
+      clearTimeout(timeoutId);
+    };
+  }, [progress]);
+
   return (
     <>
       <Slider
@@ -68,3 +87,9 @@ export default function Progress({ value, ticketId, id }) {
     </>
   );
 }
+
+Progress.propTypes = {
+  ticketId: PropTypes.string,
+  value: PropTypes.string,
+  id: PropTypes.string
+};

@@ -9,7 +9,7 @@
       "priority": "high",
       "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "id": 1,
-      "progress": "38"
+      "progress": "26"
     },
     {
       "name": "Change network cable",
@@ -20,7 +20,7 @@
       "priority": "normal",
       "details": "To ensure a robust fast LAN connection to easily transmit high data rates between IT system units, so they are ideally suited for Internet cable wiring in your home or office.",
       "id": 2,
-      "progress": "35"
+      "progress": "36"
     },
     {
       "name": "Replace the fuse in part 1 of machine 55 in section 3 ",

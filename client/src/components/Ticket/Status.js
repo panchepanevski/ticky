@@ -1,5 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
+
+const backgroundColors = {
+  active: '#44FE76',
+  inprogress: '#E8E200',
+  completed: '#727272'
+};
 
 const StatusBox = styled.select`
   width: 60px;
@@ -8,12 +15,8 @@ const StatusBox = styled.select`
   border: none;
   cursor: pointer;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.15);
-  background-color: ${props => (props.value === 'active' ? '#44FE76' : 'none')};
-  background-color: ${props => (props.value === 'inprogress' ? '#E8E200' : 'none')};
-  background-color: ${props => (props.value === 'completed' ? '#727272' : 'none')};
-  color: ${props => (props.value === 'active' ? '#44FE76' : 'none')};
-  color: ${props => (props.value === 'inprogress' ? '#E8E200' : 'none')};
-  color: ${props => (props.value === 'completed' ? '#727272' : 'none')};
+  background-color: ${props => backgroundColors[props.value]};
+  color: transparent;
 `;
 
 export default function Status({ ticketId, value }) {
@@ -45,3 +48,8 @@ export default function Status({ ticketId, value }) {
     </StatusBox>
   );
 }
+
+Status.propTypes = {
+  ticketId: PropTypes.string,
+  value: PropTypes.string
+};

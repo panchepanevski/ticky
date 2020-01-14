@@ -6,6 +6,8 @@ import { InputDescription } from '../components/InputFields/InputDescription';
 import { SubmitButton } from '../components/InputFields/SubmitButton';
 import { TextStyledH1 } from '../components/TextStyledH1';
 import RadioButton from '../components/InputFields/RadioButton';
+import Header from '../components/Header/Header';
+import BackOrderButton from '../components/Header/BackOrdersButton';
 
 const InputForm = styled.form`
   display: flex;
@@ -57,6 +59,9 @@ export default function AddOrder() {
 
   return (
     <>
+      <Header>
+        <BackOrderButton />
+      </Header>
       <InputForm onSubmit={handleSubmit}>
         <TextStyledH1>Add Order</TextStyledH1>
         <InputLabel>Name of the required part</InputLabel>

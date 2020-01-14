@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 const Input = styled.input`
   margin: 7px;
@@ -78,3 +79,10 @@ export default function RadioButton({ name, value, field, active }) {
     </>
   );
 }
+
+RadioButton.propTypes = {
+  name: PropTypes.string,
+  value: PropTypes.string,
+  field: PropTypes.string,
+  active: PropTypes.string
+};

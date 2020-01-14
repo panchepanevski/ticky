@@ -77,7 +77,7 @@ export default function LocationFilter() {
   let history = useHistory();
 
   function handleChange(value) {
-    history.push(`/?location=${value}`);
+    history.push(`/tickets/?location=${value}`);
   }
 
   return (
@@ -92,7 +92,7 @@ export default function LocationFilter() {
       <WrapperAllFilter>
         <Button>
           <AllCircle />
-          <LinkQuery to="/">All</LinkQuery>
+          <LinkQuery to="/tickets/">All</LinkQuery>
         </Button>
       </WrapperAllFilter>
     </Wrapper>

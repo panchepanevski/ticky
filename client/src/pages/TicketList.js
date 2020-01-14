@@ -2,8 +2,10 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 import Ticket from '../components/Ticket/Ticket';
-import Header from '../components/Header/Header';
 import FilterBar from '../components/Filter Bar/FilterBar';
+import Header from '../components/Header/Header';
+import AddTicketButton from '../components/Header/AddTicketButton';
+import BackMainButton from '../components/Header/BackMainButton';
 
 const Container = styled.div`
   display: flex;
@@ -36,7 +38,10 @@ export default function TicketList() {
 
   return (
     <>
-      <Header />
+      <Header>
+        <AddTicketButton />
+        <BackMainButton />
+      </Header>
       <FilterBar />
       <Container>
         {tickets.map(ticket => (

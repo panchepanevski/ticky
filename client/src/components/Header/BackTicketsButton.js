@@ -32,10 +32,10 @@ const Span = styled.span`
   }
 `;
 
-export default function BackButton() {
+export default function BackTicketsButton() {
   return (
     <ButtonWrapper>
-      <ButtonLink to="/">
+      <ButtonLink to="/tickets">
         <Span>&larr;</Span>back
       </ButtonLink>
     </ButtonWrapper>
