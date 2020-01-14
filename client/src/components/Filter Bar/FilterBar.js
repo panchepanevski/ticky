@@ -42,6 +42,10 @@ const IconWrapper = styled.div`
   justify-self: center;
   align-self: center;
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+  &:hover,
+  &:active {
+    color: ${props => props.theme.colors.tertiary};
+  }
 `;
 
 const PriorityWrapper = styled.div`
@@ -51,6 +55,9 @@ const PriorityWrapper = styled.div`
   width: 100%;
   height: 100%;
   box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+  &:hover {
+    color: ${props => props.theme.colors.tertiary};
+  }
 `;
 
 const StatusWrapper = styled.div`
@@ -90,6 +97,7 @@ const Details = styled.div`
 
 export default function FilterBar() {
   const [activeDetail, setActiveDetail] = React.useState(null);
+  const [activeBg, setActiveBg] = React.useState(null);
 
   function handleClick(filter) {
     if (filter === activeDetail) {
