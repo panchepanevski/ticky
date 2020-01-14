@@ -96,6 +96,10 @@ const LinkQuery = styled(Link)`
   font-weight: 700;
   text-shadow: 1px 1px 1px #000000;
   color: ${props => props.theme.colors.primary};
+  &:hover,
+  &:active {
+    color: ${props => props.theme.colors.tertiary};
+  }
 `;
 
 export default function PriorityFilter() {
