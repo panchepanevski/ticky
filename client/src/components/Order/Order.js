@@ -94,6 +94,18 @@ const Details = styled.div`
   grid-column: 1 / 11;
   grid-row: 5 / 6;
   margin: 10px 0;
+  animation: fadeIn 1s;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .fadeIn {
+    animation-name: fadeIn;
+  }
 `;
 
 export default function Order({
