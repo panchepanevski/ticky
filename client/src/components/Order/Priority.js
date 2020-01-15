@@ -17,6 +17,7 @@ const PriorityBox = styled.select`
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.15);
   color: transparent;
   background-color: ${props => backgroundColors[props.value]};
+  outline: none;
 `;
 
 export default function Priority({ orderId, value }) {

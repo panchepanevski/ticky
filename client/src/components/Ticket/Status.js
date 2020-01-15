@@ -17,6 +17,7 @@ const StatusBox = styled.select`
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.15);
   background-color: ${props => backgroundColors[props.value]};
   color: transparent;
+  outline: none;
 `;
 
 export default function Status({ ticketId, value }) {

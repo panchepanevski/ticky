@@ -9,7 +9,7 @@
       "priority": "high",
       "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "id": 1,
-      "progress": "47"
+      "progress": "30"
     },
     {
       "name": "Change network cable",
@@ -20,7 +20,7 @@
       "priority": "normal",
       "details": "To ensure a robust fast LAN connection to easily transmit high data rates between IT system units, so they are ideally suited for Internet cable wiring in your home or office.",
       "id": 2,
-      "progress": "36"
+      "progress": "66"
     },
     {
       "name": "Replace the fuse in part 1 of machine 55 in section 3 ",
@@ -32,6 +32,17 @@
       "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
       "id": 3,
       "progress": "100"
+    },
+    {
+      "name": "Fix WiFi signal  ",
+      "timestamp": 1579021864784,
+      "assigned": "Panche Panevski",
+      "location": "east-building",
+      "status": "inprogress",
+      "priority": "high",
+      "details": "While not as annoyingly frequent as app updates, router manufactures sometimes issue stability resolutions via driver updates. Go to the manufacturer’s website to download all new maintenance updates and changes.",
+      "id": 4,
+      "progress": "87"
     }
   ],
   "orders": [
@@ -51,9 +62,29 @@
       "manufacturer": "Bosch",
       "quantity": "10",
       "orderedby": "Panche Panevski",
-      "priority": "medium",
+      "priority": "high",
       "description": "To ensure that errors are prevented as early in the automated system as possible, a verification must occur before a part enters the system. A verification step should occur after a part is marked or labeled with a barcode and before the part reaches the station where the barcode is first to read.",
       "id": 2
+    },
+    {
+      "name": "Router TP Link R1005",
+      "serial": "RST 2126767",
+      "manufacturer": "TP Link",
+      "quantity": "1",
+      "orderedby": "Panche Panevski",
+      "priority": "medium",
+      "description": "Need to be changed in Breiter Strasse, company SPACES",
+      "id": 3
+    },
+    {
+      "name": "Sensor Bosch 1200 SMT",
+      "serial": "SMT 12898966554",
+      "manufacturer": "Bosch",
+      "quantity": "5",
+      "orderedby": "Panche Panevski",
+      "priority": "normal",
+      "description": "The sensor needs to be replaced in Neff Bretten, part Kleberei. ",
+      "id": 4
     }
   ]
 }

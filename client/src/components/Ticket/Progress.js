@@ -16,6 +16,7 @@ const Slider = styled.input`
   outline: none;
   transition: opacity 0.2s;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.15);
+  outline: none;
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
