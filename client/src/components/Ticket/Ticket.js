@@ -53,6 +53,9 @@ const DescriptionWrapper = styled.div`
   grid-column: 1 / 6;
   grid-row: 4 / 5;
   cursor: pointer;
+  &:hover {
+    color: ${props => props.theme.colors.tertiary};
+  }
 `;
 
 const AssignedWrapper = styled.div`
