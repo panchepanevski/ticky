@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Order from '../components/Order/Order';
 import Header from '../components/Header/Header';
@@ -52,3 +53,15 @@ export default function OrderList() {
     </>
   );
 }
+
+OrderList.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  serial: PropTypes.string,
+  manufacturer: PropTypes.string,
+  quantity: PropTypes.string,
+  orderedby: PropTypes.string,
+  priority: PropTypes.string,
+  description: PropTypes.string,
+  ticketId: PropTypes.number
+};

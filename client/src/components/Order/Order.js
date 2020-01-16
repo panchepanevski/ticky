@@ -2,11 +2,11 @@ import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Title } from '../Ticket/Title';
-import deleteIcon from '../../assets/icons/deleteIcon.svg';
 import Priority from './Priority';
 import ManufacturerIcon from '../../assets/icons/ManufacturerIcon';
 import QuantityIcon from '../../assets/icons/QuantityIcon';
 import SerialIcon from '../../assets/icons/SerialIcon';
+import DeleteIcon from '../../assets/icons/DeleteIcon';
 
 const Container = styled.div`
   display: grid;
@@ -23,25 +23,21 @@ const Container = styled.div`
 `;
 
 const NameWrapper = styled.div`
-  grid-column: 1 / 10;
-  grid-row: 1 / 2;
+  grid-area: 1 / 1 / 2 / 10;
   margin: 5px 0;
 `;
 
 const OrderedByWrapper = styled.div`
-  grid-column: 1 / 10;
-  grid-row: 2 / 3;
+  grid-area: 2 / 1 / 3 / 10;
 `;
 
 const PriorityWrapper = styled.div`
-  grid-column: 1 / 11;
-  grid-row: 3 / 4;
+  grid-area: 3 / 1 / 4 / 11;
   margin: 5px 0;
 `;
 
 const DescriptionWrapper = styled.div`
-  grid-column: 1 / 6;
-  grid-row: 4 / 5;
+  grid-area: 4 / 1 / 5 / 6;
   cursor: pointer;
   margin: 15px 0;
   &:hover {
@@ -69,20 +65,22 @@ const QuantityWrapper = styled(IconWrapper)`
 `;
 
 const BorderLine = styled.div`
-  grid-column: 1 / 11;
-  grid-row: 4 / 5;
+  grid-area: 4 / 1 / 5 / 11;
   border-bottom: 1px solid ${props => props.theme.colors.primary};
   margin-top: 30px;
   margin-bottom: 5px;
 `;
 
-const DeleteIcon = styled.img`
-  grid-column: 10 / 11;
-  grid-row: 1 / 2;
+const DeleteButton = styled.button`
+  grid-area: 1 / 10 / 2 / 11;
   justify-self: center;
   width: 24px;
   height: 24px;
   margin: 20px 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: ${props => props.theme.colors.tertiary};
 `;
 
 const IconsWrapper = styled.div`
@@ -94,8 +92,7 @@ const IconsWrapper = styled.div`
 
 const Details = styled.div`
   display: ${props => (props.show ? 'block' : 'none')};
-  grid-column: 1 / 11;
-  grid-row: 5 / 6;
+  grid-area: 5 / 1 / 6 / 11;
   margin: 10px 0;
   animation: fadeIn 1s;
   @keyframes fadeIn {
@@ -136,7 +133,10 @@ export default function Order({
       <NameWrapper>
         <Title>{name}</Title>
       </NameWrapper>
-      <DeleteIcon src={deleteIcon}></DeleteIcon>
+      <DeleteButton>
+        <DeleteIcon />
+        beta
+      </DeleteButton>
       <OrderedByWrapper>
         <p>
           <strong>Ordered by:</strong> {orderedby}
@@ -178,7 +178,7 @@ export default function Order({
 }
 
 Order.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.number,
   name: PropTypes.string,
   serial: PropTypes.string,
   manufacturer: PropTypes.string,

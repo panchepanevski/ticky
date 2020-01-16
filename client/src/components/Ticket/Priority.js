@@ -25,7 +25,7 @@ export default function Priority({ ticketId, value }) {
 
   async function handlePriority(value) {
     setPriorityValue(value);
-    await fetch(`http://localhost:8080/tickets/${ticketId}`, {
+    await fetch(`/api/tickets/${ticketId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -51,6 +51,6 @@ export default function Priority({ ticketId, value }) {
 }
 
 Priority.propTypes = {
-  ticketId: PropTypes.string,
+  ticketId: PropTypes.number,
   value: PropTypes.string
 };

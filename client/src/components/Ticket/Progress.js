@@ -41,20 +41,18 @@ const Slider = styled.input`
 
 export default function Progress({ value, ticketId, id }) {
   const [progress, setProgress] = React.useState(value);
-  const [firstRender, setFirstRender] = React.useState(true);
+  const firstRender = React.useRef(true);
 
   function handleProgress(value) {
     setProgress(value);
   }
 
   React.useEffect(() => {
-    if (firstRender) {
-      setFirstRender(false);
+    if (firstRender.current) {
+      firstRender.current = false;
       return;
     }
-    console.log('Add new Timeout');
     const timeoutId = setTimeout(() => {
-      console.log('Execute Timeout');
       fetch(`/api/tickets/${ticketId}`, {
         method: 'PATCH',
         headers: {
@@ -67,10 +65,9 @@ export default function Progress({ value, ticketId, id }) {
     }, 200);
 
     return () => {
-      console.log('Clear previous Timeout');
       clearTimeout(timeoutId);
     };
-  }, [progress]);
+  }, [progress, ticketId]);
 
   return (
     <>
@@ -90,7 +87,7 @@ export default function Progress({ value, ticketId, id }) {
 }
 
 Progress.propTypes = {
-  ticketId: PropTypes.string,
+  ticketId: PropTypes.number,
   value: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.number
 };

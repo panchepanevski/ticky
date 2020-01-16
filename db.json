@@ -1,15 +1,15 @@
 {
   "tickets": [
     {
-      "name": "Restart Anlage Nr.5 in #Kleberei",
+      "name": "Replace Hard Drive on #2 PC in West Building",
       "timestamp": 1578848254000,
-      "assigned": "Panche",
+      "assigned": "Panche Panevski",
       "location": "west",
       "status": "inprogress",
-      "priority": "high",
+      "priority": "normal",
       "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "id": 1,
-      "progress": "30"
+      "progress": "53"
     },
     {
       "name": "Change network cable",
@@ -20,7 +20,7 @@
       "priority": "normal",
       "details": "To ensure a robust fast LAN connection to easily transmit high data rates between IT system units, so they are ideally suited for Internet cable wiring in your home or office.",
       "id": 2,
-      "progress": "66"
+      "progress": "69"
     },
     {
       "name": "Replace the fuse in part 1 of machine 55 in section 3 ",
@@ -38,11 +38,33 @@
       "timestamp": 1579021864784,
       "assigned": "Panche Panevski",
       "location": "east-building",
-      "status": "inprogress",
+      "status": "active",
       "priority": "high",
       "details": "While not as annoyingly frequent as app updates, router manufactures sometimes issue stability resolutions via driver updates. Go to the manufacturer’s website to download all new maintenance updates and changes.",
       "id": 4,
-      "progress": "87"
+      "progress": "31"
+    },
+    {
+      "name": "Replace Printer Cable",
+      "timestamp": 1579091868166,
+      "assigned": "Panche Panevski",
+      "location": "east-building",
+      "status": "active",
+      "priority": "medium",
+      "details": "Replace printer cable on a #102 printer in production station #13",
+      "id": 10,
+      "progress": "0"
+    },
+    {
+      "name": "Replace printer cable in building #30",
+      "timestamp": 1579096245752,
+      "assigned": "Panche",
+      "location": "east-building",
+      "status": "active",
+      "priority": "high",
+      "details": "Replace printer cable in building #30",
+      "id": 21,
+      "progress": "35"
     }
   ],
   "orders": [
@@ -85,6 +107,26 @@
       "priority": "normal",
       "description": "The sensor needs to be replaced in Neff Bretten, part Kleberei. ",
       "id": 4
+    },
+    {
+      "name": "Printer cable 1002",
+      "serial": "3456637 SNGH ",
+      "manufacturer": "Delacon",
+      "quantity": "1",
+      "orderedby": "Panche Panevski",
+      "priority": "high",
+      "description": "Replace printer cable on a #102 printer in production station #13",
+      "id": 5
+    },
+    {
+      "name": "Replace printer cable in production station #13",
+      "serial": "8273827382",
+      "manufacturer": "Delacon",
+      "quantity": "1",
+      "orderedby": "Panche Panevski",
+      "priority": "normal",
+      "description": "Replace printer cable in production station #13",
+      "id": 8
     }
   ]
 }

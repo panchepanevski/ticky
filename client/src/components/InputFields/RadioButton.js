@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
 
 const Input = styled.input`
   margin: 7px;
@@ -30,7 +29,8 @@ const Label = styled.label`
       return props.theme.colors.priority_medium_hover;
     } else if (props.field === 'High' && props.active) {
       return props.theme.colors.priority_high_hover;
-    } else console.error('Error!');
+    }
+    return props.field === 'Active' && props.active;
   }};
   border-radius: 5px;
   border: 1px solid
@@ -47,7 +47,8 @@ const Label = styled.label`
         return props.theme.colors.priority_medium;
       } else if (props.field === 'High') {
         return props.theme.colors.priority_high;
-      } else console.error('Error!');
+      }
+      return props.field === 'Active';
     }};
   &:hover,
   &:active {
@@ -64,7 +65,8 @@ const Label = styled.label`
         return props.theme.colors.priority_medium_hover;
       } else if (props.field === 'High') {
         return props.theme.colors.priority_high_hover;
-      } else console.error('Error!');
+      }
+      return props.field === 'Active';
     }};
   }
 `;
@@ -79,10 +81,3 @@ export default function RadioButton({ name, value, field, active }) {
     </>
   );
 }
-
-RadioButton.propTypes = {
-  name: PropTypes.string,
-  value: PropTypes.string,
-  field: PropTypes.string,
-  active: PropTypes.string
-};

@@ -5,11 +5,11 @@ import { Title } from './Title';
 import Status from './Status';
 import Priority from './Priority';
 import { IconsWrapper } from './IconsWrapper';
-import editIcon from '../../assets/icons/editIcon.svg';
 import Progress from './Progress';
 import LocationIcon from '../../assets/icons/LocationIcon';
 import UserIcon from '../../assets/icons/UserIcon';
 import TimeDateIcon from '../../assets/icons/TimeDateIcon';
+import EditIcon from '../../assets/icons/EditIcon';
 
 const Container = styled.div`
   display: grid;
@@ -32,26 +32,22 @@ const TitleWrapper = styled.div`
 `;
 
 const StatusWrapper = styled.div`
-  grid-column: 1 / 5;
-  grid-row: 2 / 3;
+  grid-area: 2 / 1 / 3 / 5;
   margin: 5px 0;
 `;
 
 const PriorityWrapper = styled.div`
-  grid-column: 6 / 11;
-  grid-row: 2 /3;
+  grid-area: 2 / 6 / 3 / 11;
   margin: 5px 0;
 `;
 
 const ProgressWrapper = styled.div`
-  grid-column: 1 / 11;
-  grid-row: 3 / 4;
+  grid-area: 3 / 1 / 4 / 11;
   margin: 5px 0;
 `;
 
 const DescriptionWrapper = styled.div`
-  grid-column: 1 / 6;
-  grid-row: 4 / 5;
+  grid-area: 4 / 1 / 5 / 6;
   cursor: pointer;
   &:hover {
     color: ${props => props.theme.colors.tertiary};
@@ -59,46 +55,44 @@ const DescriptionWrapper = styled.div`
 `;
 
 const AssignedWrapper = styled.div`
-  grid-column: 5 / 7;
-  grid-row: 4 / 5;
+  grid-area: 4 / 5 / 5 / 7;
   justify-self: center;
   cursor: pointer;
 `;
 
 const LocationWrapper = styled.div`
-  grid-column: 7 / 9;
-  grid-row: 4 / 5;
+  grid-area: 4 / 7 / 5 / 9;
   justify-self: center;
   cursor: pointer;
 `;
 
 const TimeDateWrapper = styled.div`
-  grid-column: 9 / 11;
-  grid-row: 4 / 5;
+  grid-area: 4 / 9 / 5 / 11;
   justify-self: center;
   cursor: pointer;
   border-bottom: 1px solid ${props => props.theme.colors.primary};
 `;
 
 const BorderLine = styled.div`
-  grid-column: 1 / 11;
-  grid-row: 4 / 5;
+  grid-area: 4 / 1 / 5 / 11;
   border-bottom: 1px solid ${props => props.theme.colors.primary};
   margin-top: 30px;
 `;
 
-const Edit = styled.img`
-  grid-column: 10 / 11;
-  grid-row: 1 / 2;
+const Edit = styled.button`
+  grid-area: 1 / 10 / 2 / 11;
+  margin-top: 20px;
   width: 24px;
   height: 24px;
-  margin-top: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: ${props => props.theme.colors.tertiary};
 `;
 
 const ExtraDescription = styled.div`
   display: ${props => (props.show ? 'block' : 'none')};
-  grid-column: 1 / 11;
-  grid-row: 5 / 6;
+  grid-area: 5 / 1 / 6 / 11;
   margin: 10px 0;
   animation: fadeIn 1s;
   @keyframes fadeIn {
@@ -142,7 +136,10 @@ export default function Ticket({
       <TitleWrapper>
         <Title>{name}</Title>
       </TitleWrapper>
-      <Edit src={editIcon}></Edit>
+      <Edit>
+        <EditIcon />
+        beta
+      </Edit>
 
       <StatusWrapper>
         Status:
@@ -205,8 +202,9 @@ Ticket.propTypes = {
   priority: PropTypes.string,
   assigned: PropTypes.string,
   location: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
   details: PropTypes.string,
   progress: PropTypes.string,
-  timestamp: PropTypes.number
+  timestamp: PropTypes.number,
+  ticketId: PropTypes.number
 };
