@@ -1,6 +1,5 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Ticket from '../components/Ticket/Ticket';
 import FilterBar from '../components/Filter Bar/FilterBar';
@@ -65,16 +64,3 @@ export default function TicketList() {
     </>
   );
 }
-
-TicketList.propTypes = {
-  name: PropTypes.string,
-  status: PropTypes.string,
-  priority: PropTypes.string,
-  assigned: PropTypes.string,
-  location: PropTypes.string,
-  id: PropTypes.number,
-  details: PropTypes.string,
-  progress: PropTypes.string,
-  timestamp: PropTypes.number,
-  ticketId: PropTypes.number
-};

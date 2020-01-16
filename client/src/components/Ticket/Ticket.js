@@ -205,6 +205,5 @@ Ticket.propTypes = {
   id: PropTypes.number,
   details: PropTypes.string,
   progress: PropTypes.string,
-  timestamp: PropTypes.number,
-  ticketId: PropTypes.number
+  timestamp: PropTypes.number
 };

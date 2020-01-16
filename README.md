@@ -16,7 +16,9 @@ This project is my final work for the intensive Web Development Course @neuefisc
 
 Install client and server dependencies
 
-````npm install
+```
+npm install
 cd client
-npm install```
-````
+npm install
+
+```
