@@ -20,7 +20,7 @@
       "priority": "normal",
       "details": "To ensure a robust fast LAN connection to easily transmit high data rates between IT system units, so they are ideally suited for Internet cable wiring in your home or office.",
       "id": 2,
-      "progress": "69"
+      "progress": "0"
     },
     {
       "name": "Replace the fuse in part 1 of machine 55 in section 3 ",
@@ -42,18 +42,18 @@
       "priority": "high",
       "details": "While not as annoyingly frequent as app updates, router manufactures sometimes issue stability resolutions via driver updates. Go to the manufacturer’s website to download all new maintenance updates and changes.",
       "id": 4,
-      "progress": "31"
+      "progress": "0"
     },
     {
       "name": "Replace Printer Cable",
       "timestamp": 1579091868166,
       "assigned": "Panche Panevski",
       "location": "east-building",
-      "status": "active",
+      "status": "inprogress",
       "priority": "medium",
       "details": "Replace printer cable on a #102 printer in production station #13",
       "id": 10,
-      "progress": "0"
+      "progress": "76"
     },
     {
       "name": "Replace printer cable in building #30",
@@ -64,7 +64,7 @@
       "priority": "high",
       "details": "Replace printer cable in building #30",
       "id": 21,
-      "progress": "35"
+      "progress": "0"
     }
   ],
   "orders": [
